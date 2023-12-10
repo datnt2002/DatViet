@@ -21,7 +21,7 @@ const Footer = () => {
               className="flex flex-col items-center justify-center md:justify-start md:ml-48"
             >
               {/* <img src={logo} className="h-24" alt="Logo" /> */}
-              <h1 className="text-6xl font-bold font-dancing my-2">Nhân Tài</h1>
+              <h1 className="text-6xl font-bold font-dancing my-2">Chủ Nhân</h1>
               <h1 className="text-6xl font-bold font-dancing my-2">Đất Việt</h1>
             </Link>
           </div>

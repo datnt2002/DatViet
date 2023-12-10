@@ -4,12 +4,20 @@ import AdminPage from "./pages/admin";
 import Homepage from "./pages/home";
 import NotFound from "./components/Common/NotFound";
 import CreateQuestion from "./pages/admin/CreateQuestion";
+import ClientGuard from "./components/Layout/Guard/ClientGuard";
 
 function App() {
   return (
     <BrowserRouter basename="/">
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route
+          path="/"
+          element={
+            <ClientGuard>
+              <Homepage />
+            </ClientGuard>
+          }
+        />
         <Route
           path="/admin"
           element={
