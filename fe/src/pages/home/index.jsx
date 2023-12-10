@@ -1,15 +1,16 @@
 import React from "react";
-import { Button, Divider } from "antd";
 
 import quizGame from "../../assets/imgs/quizGame.webp";
 import paperScroll from "../../assets/imgs/paperscroll.png";
+import bg from "../../assets/imgs/backgr.jpg";
+import puzzle from "../../assets/imgs/puzzle.jpg";
 
 const Homepage = () => {
   return (
     <div>
       <div
         style={{
-          backgroundImage: `url(${"https://cdn.wallpapersafari.com/36/1/akHK6N.jpg"})`,
+          backgroundImage: `url(${bg})`,
         }}
         className="bg-cover bg-bottom h-screen flex flex-1 flex-col md:flex-row"
       >
@@ -28,25 +29,25 @@ const Homepage = () => {
           <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
             <img src={quizGame} alt="" className="h-20 rounded-2xl mr-3" />
             <h1 className="text-xl self-center font-semibold">
-              Hướng Dẫn Dự Thi Trên Myaloha
+              Truy Tìm Cổ Vật
             </h1>
           </div>
           <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
             <img src={quizGame} alt="" className="h-20 rounded-2xl mr-3" />
             <h1 className="text-xl self-center font-semibold">
-              Hướng Dẫn Dự Thi Trên Myaloha
+              Giải Mã Kho Báu
+            </h1>
+          </div>
+          <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+            <img src={puzzle} alt="" className="h-20 rounded-2xl mr-3" />
+            <h1 className="text-xl self-center font-semibold">
+              Khám Phá Kì Quan
             </h1>
           </div>
           <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
             <img src={quizGame} alt="" className="h-20 rounded-2xl mr-3" />
             <h1 className="text-xl self-center font-semibold">
-              Hướng Dẫn Dự Thi Trên Myaloha
-            </h1>
-          </div>
-          <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
-            <img src={quizGame} alt="" className="h-20 rounded-2xl mr-3" />
-            <h1 className="text-xl self-center font-semibold">
-              Hướng Dẫn Dự Thi Trên Myaloha
+              Vượt chướng ngại vật
             </h1>
           </div>
         </div>
