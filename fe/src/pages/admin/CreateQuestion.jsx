@@ -13,8 +13,6 @@ const CreateQuestion = () => {
           backgroundSize: "100% auto",
         }}
       >
-        <div className="pl-6">{/* <BreadCrumbCustom /> */}</div>
-
         <div className="flex flex-col border border-black bg-white/50 rounded-2xl p-6">
           <div className="flex justify-between">
             <h1 className="font-semibold text-2xl mb-5">Tạo mới bộ đề</h1>

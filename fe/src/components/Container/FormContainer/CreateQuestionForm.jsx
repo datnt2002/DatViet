@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Button, Form, Input, Select } from "antd";
+import CreateQuestionInsideForm from "./CreateQuestionInsideForm";
 
 const CreateQuestionForm = () => {
   const [isCreatedSuccess, setIsCreatedSuccess] = useState(false);
@@ -39,7 +40,7 @@ const CreateQuestionForm = () => {
         </Form.Item>
       </Form>
 
-      {isCreatedSuccess && <CreateQuestionForm />}
+      <CreateQuestionInsideForm />
     </>
   );
 };
