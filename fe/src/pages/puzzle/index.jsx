@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import "./puzzle.css";
 // import { isMiniature, Puzzle, autoStart } from "./helper";
 import { useLocation } from "react-router-dom";
+import { imgList } from "./constants";
 
+let autoStart;
 const PuzzleGame = () => {
   const location = useLocation();
 
 //   ("use strict");
-  let autoStart;
   const mrandom = Math.random,
     mfloor = Math.floor,
     mhypot = Math.hypot;
@@ -726,6 +727,7 @@ on number of pieces
     // canv for the moving PolyPiece and the full image
     if (!this.canvMobile) {
       this.canvMobile = document.createElement("canvas");
+      this.canvMobile.id = "canvmobi";
       this.divBoard.appendChild(this.canvMobile);
     }
     this.canvMobile.style.visibility = "visible";
@@ -761,7 +763,7 @@ on number of pieces
         lineOffset: 30,
         lineStep: 30,
         lines: [
-          { text: "load image", func: this.loadImage() },
+          // { text: "load image", func: this.loadImage() },
           { text: "12 piece", func: this.returnFunct(12) },
           { text: "25 piece", func: this.returnFunct(25) },
           { text: "50 piece", func: this.returnFunct(50) },
@@ -833,7 +835,10 @@ on number of pieces
     let coeffDecentr = 0.12;
 
     this.canvMobile.style.visibility = "hidden"; // hide the full picture
-
+    if(document.getElementById("canvmobi")){
+      document.getElementById("canvmobi").style.visibility = "hidden";
+    }
+    
     // evaluation of number of pieces
 
     this.computenxAndny();
@@ -1741,8 +1746,11 @@ every edge contains kx and ky too, normally not used here
   //   });
   // });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let img = "https://assets.codepen.io/2574552/Mona_Lisa.jpg";
+    // let imglist = imgList
+
+    // let currentImgSrc =
 
     autoStart = isMiniature(); // used for nice miniature in CodePen
 
@@ -1755,7 +1763,7 @@ every edge contains kx and ky too, normally not used here
     return () => {
       // window.removeEventListener("load", run);
     };
-  }, []);
+  }, [isMiniature()]);
 
   return <div id="forPuzzle"></div>;
 };
