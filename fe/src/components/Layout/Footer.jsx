@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-white/50 bg-opacity-40">
+    <footer className="bg-[#a66c1c]">
       <Divider className="bg-black mb-1 mt-0" />
 
       <div className="w-full py-6 lg:py-8">
@@ -30,7 +30,7 @@ const Footer = () => {
               <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
                 Tài Nguyên
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-700 font-medium">
                 <li>
                   <Link className="hover:underline">Ant Design</Link>
                 </li>
@@ -43,7 +43,7 @@ const Footer = () => {
               <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
                 Theo Dõi Chúng Tôi
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-700  font-medium">
                 <li>Github</li>
                 <li>
                   <Link className="hover:underline">Discord</Link>
@@ -54,7 +54,7 @@ const Footer = () => {
               <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
                 Pháp Lý
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-700  font-medium">
                 <li>
                   <Link className="hover:underline">Chính Sách</Link>
                 </li>
@@ -70,13 +70,13 @@ const Footer = () => {
                 Mạng Xã Hội
               </h2>
               <div className="grid grid-cols-3 gap-6 sm:grid-cols-3">
-                <Link className="text-gray-500 hover:text-gray-900">
+                <Link className="text-gray-700 hover:text-gray-900">
                   <FacebookOutlined className="text-lg" />
                 </Link>
-                <Link className="text-gray-500 hover:text-gray-900">
+                <Link className="text-gray-700 hover:text-gray-900">
                   <InstagramOutlined className="text-lg" />
                 </Link>
-                <Link className="text-gray-500 hover:text-gray-900">
+                <Link className="text-gray-700 hover:text-gray-900">
                   <GithubOutlined className="text-lg" />
                 </Link>
               </div>

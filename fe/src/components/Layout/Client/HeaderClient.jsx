@@ -7,10 +7,10 @@ import { Header } from "antd/es/layout/layout";
 const HeaderClient = () => {
   return (
     <Layout>
-      <Header className="flex bg-white h-16">
+      <Header className="flex bg-[#e0a949] h-16">
         <div className="flex  items-center mx-auto">
           <Link className="text-[#F5F5F5] text-xl">
-            <h1 className="text-black font-dancing font-bold text-3xl">
+            <h1 className="text-amber-800 font-dancing font-bold text-3xl">
               Chủ Nhân Đất Việt
             </h1>
           </Link>
