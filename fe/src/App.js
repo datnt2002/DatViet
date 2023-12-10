@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AdminGuard from "./components/Layout/Guard/AdminGuard";
+import AdminPage from "./pages/admin";
+import Homepage from "./pages/home";
+import NotFound from "./components/Common/NotFound";
+import CreateQuestion from "./pages/admin/CreateQuestion";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter basename="/">
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminGuard>
+              <AdminPage />
+            </AdminGuard>
+          }
+        />
+        <Route
+          path="/admin/create-question"
+          element={
+            <AdminGuard>
+              <CreateQuestion />
+            </AdminGuard>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
