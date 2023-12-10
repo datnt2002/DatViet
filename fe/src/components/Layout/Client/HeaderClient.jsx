@@ -9,7 +9,7 @@ const HeaderClient = () => {
     <Layout>
       <Header className="flex bg-[#e0a949] h-16">
         <div className="flex  items-center mx-auto">
-          <Link className="text-[#F5F5F5] text-xl">
+          <Link to="/" className="text-[#F5F5F5] text-xl">
             <h1 className="text-amber-800 font-dancing font-bold text-3xl">
               Chủ Nhân Đất Việt
             </h1>

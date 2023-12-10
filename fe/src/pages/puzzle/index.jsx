@@ -8,7 +8,7 @@ let autoStart;
 const PuzzleGame = () => {
   const location = useLocation();
 
-//   ("use strict");
+  //   ("use strict");
   const mrandom = Math.random,
     mfloor = Math.floor,
     mhypot = Math.hypot;
@@ -835,10 +835,10 @@ on number of pieces
     let coeffDecentr = 0.12;
 
     this.canvMobile.style.visibility = "hidden"; // hide the full picture
-    if(document.getElementById("canvmobi")){
+    if (document.getElementById("canvmobi")) {
       document.getElementById("canvmobi").style.visibility = "hidden";
     }
-    
+
     // evaluation of number of pieces
 
     this.computenxAndny();
@@ -1747,10 +1747,11 @@ every edge contains kx and ky too, normally not used here
   // });
 
   useLayoutEffect(() => {
-    let img = "https://assets.codepen.io/2574552/Mona_Lisa.jpg";
-    // let imglist = imgList
-
+    let imglistArr = imgList;
+    let random = Math.floor(Math.random() * 9);
     // let currentImgSrc =
+    // let img = require("../../assets/imgs/game/lang_bac.png");
+    let img = imglistArr[random]?.src;
 
     autoStart = isMiniature(); // used for nice miniature in CodePen
 

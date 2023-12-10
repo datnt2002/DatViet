@@ -1,18 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import quizGame from "../../assets/imgs/quizGame.webp";
 import paperScroll from "../../assets/imgs/paperscroll.png";
 import bg from "../../assets/imgs/backgr.jpg";
 import puzzle from "../../assets/imgs/puzzle.jpg";
 import map from "../../assets/imgs/map.jpg";
-import { useNavigate } from "react-router-dom";
+import vuot from "../../assets/imgs/vuotchuong.jpg";
 
 const Homepage = () => {
   const navigate = useNavigate();
   const handleNavigateTruyTimBaoVat = () => {
     navigate("/truy-tim-bao-vat");
   };
-
+  const handleNavigatePuzzle = () => {
+    navigate("/puzzle");
+  };
   return (
     <div>
       <div
@@ -46,7 +49,7 @@ const Homepage = () => {
               Truy Tìm Cổ Vật
             </h1>
           </div>
-          <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+          <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
             <img
               src={map}
               alt=""
@@ -56,7 +59,10 @@ const Homepage = () => {
               Giải Mã Kho Báu
             </h1>
           </div>
-          <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+          <div
+            className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90"
+            onClick={handleNavigatePuzzle}
+          >
             <img
               src={puzzle}
               alt=""
@@ -66,9 +72,9 @@ const Homepage = () => {
               Khám Phá Kì Quan
             </h1>
           </div>
-          <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+          <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
             <img
-              src={quizGame}
+              src={vuot}
               alt=""
               className="h-20 aspect-video rounded-2xl mr-3"
             />
