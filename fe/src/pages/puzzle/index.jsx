@@ -3,6 +3,7 @@ import "./puzzle.css";
 // import { isMiniature, Puzzle, autoStart } from "./helper";
 import { useLocation } from "react-router-dom";
 import { imgList } from "./constants";
+import paperScroll from "../../assets/imgs/paperscroll.png";
 
 let autoStart;
 const mrandom = Math.random,
@@ -671,9 +672,9 @@ Puzzle.prototype.createPuzzle = function (params) {
 
   if (wi / he > this.width / this.height) {
     // actual picture "more horizontal" than game board
-    this.height = (this.width * he) / wi;
+    this.height = (this.width * he) / wi ;
   } else {
-    this.width = (this.height * wi) / he;
+    this.width = (this.height * wi) / he  ;
   }
   // end change width or height
 
@@ -702,10 +703,10 @@ Puzzle.prototype.createPuzzle = function (params) {
 on number of pieces
 */
 
-  this.divGame.style.width = this.divBoard.style.width =
-    this.width + 2 * Puzzle.MARGIN1 + "px";
-  this.divGame.style.height = this.divBoard.style.height =
-    this.height + 2 * Puzzle.MARGIN1 + "px";
+  this.divGame.style.width = this.width + 2 * Puzzle.MARGIN1 + "px";
+  this.divBoard.style.width = this.width + 2 * Puzzle.MARGIN1 + "px";
+  this.divGame.style.height = this.width + 2 * Puzzle.MARGIN1 + "px";
+  this.divBoard.style.height = this.height + 2 * Puzzle.MARGIN1 + "px";
 
   // canv for the moving PolyPiece and the full image
   if (!this.canvMobile) {
@@ -741,7 +742,10 @@ on number of pieces
 
   if (!this.menu) {
     const startBtnEle = document.getElementById("startBtn");
-    startBtnEle.addEventListener("click",this.returnFunct(9));
+    if(startBtnEle){
+      startBtnEle.addEventListener("click", this.returnFunct(9));
+    }
+    
 
     // this.menu = new Menu({
     //   parentDiv: this.divGame,
@@ -822,9 +826,19 @@ Puzzle.prototype.next = function () {
   let coeffDecentr = 0.12;
 
   this.canvMobile.style.visibility = "hidden"; // hide the full picture
+  // TODO: Handle after press start
   if (document.getElementById("canvmobi")) {
     document.getElementById("canvmobi").style.visibility = "hidden";
   }
+  if(document.getElementById("startBtn")){
+    document.getElementById("startBtn").disabled = true;
+  }
+  if(document.getElementById("gameInstruction")){
+    setTimeout(() => {
+      document.getElementById("gameInstruction").style.display = "none";
+    }, 2000);
+  }
+  
 
   // evaluation of number of pieces
 
@@ -1711,12 +1725,12 @@ function lookForLoops(tbCases) {
 
 let imglistArr = imgList;
 let random = Math.floor(Math.random() * 9);
-let img = imglistArr[random]?.src;
+let imgData = imglistArr[random];
 
 let gameController = new Puzzle({
-  img: img,
+  img: imgData?.src,
   width: window.innerWidth,
-  height: window.innerHeight,
+  height: window.innerHeight - 64,
   idiv: "forPuzzle",
 });
 
@@ -1735,11 +1749,37 @@ const PuzzleGame = () => {
 
   return (
     <div className="gameContainer">
-      <button id="startBtn" className="border-spacing-1" >
-        Start
-      </button>
-      <div id="msgSucess">You are all the best</div>
+      {/* <img className="gameInstruction-bg" src={paperScroll} alt="game-instruction"/> */}
+      <div id="gameInstruction">
+        <div className="content">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only
+            five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with
+            the release of Letraset sheets containing Lorem Ipsum passages, and
+            more recently with desktop publishing software like Aldus PageMaker
+            including versions of Lorem Ipsum.
+          </p>
+          {/* <img src={imgData?.src} alt="game-result-img" className="w-1/3"/>
+          <h4>{imgData?.name}</h4> */}
+          {/* <div>
+            <button id="" className="">
+              Chơi lại
+            </button>
+            <button id="" className="">
+              Thoát
+            </button>
+          </div> */}
+          <button id="startBtn" className="">
+            Start
+          </button>
+        </div>
+      </div>
       <div id="forPuzzle"></div>
+      <div id="msgSucess">You are all the best</div>
     </div>
   );
 };
