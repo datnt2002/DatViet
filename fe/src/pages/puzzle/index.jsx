@@ -1,9 +1,7 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./puzzle.css";
-// import { isMiniature, Puzzle, autoStart } from "./helper";
 import { useLocation } from "react-router-dom";
 import { imgList } from "./constants";
-import paperScroll from "../../assets/imgs/paperscroll.png";
 
 let autoStart;
 const mrandom = Math.random,
@@ -660,7 +658,6 @@ and an actual total number of pieces as close as possible to this integer.
 
 Puzzle.prototype.createPuzzle = function (params) {
   //  let kx, ky, x, y, dx, dy, p1, p2, p3, brd, s1, s2, s3, s4, s5, s6, s7, s8, s9, concav, width, height, nx, ny;
-
   // we change width or height in order to keep the picture size ratio
   let wi = this.image.width; // from original picture
   let he = this.image.height;
@@ -672,9 +669,9 @@ Puzzle.prototype.createPuzzle = function (params) {
 
   if (wi / he > this.width / this.height) {
     // actual picture "more horizontal" than game board
-    this.height = (this.width * he) / wi ;
+    this.height = (this.width * he) / wi;
   } else {
-    this.width = (this.height * wi) / he  ;
+    this.width = (this.height * wi) / he;
   }
   // end change width or height
 
@@ -683,6 +680,9 @@ Puzzle.prototype.createPuzzle = function (params) {
     this.divGame = document.getElementById(params.idiv);
   } else {
     this.divGame = params.idiv;
+  }
+  if (!this.divGame) {
+    return;
   }
   this.divGame.style.overflow = "visible";
   this.divGame.style.position = "relative";
@@ -742,10 +742,9 @@ on number of pieces
 
   if (!this.menu) {
     const startBtnEle = document.getElementById("startBtn");
-    if(startBtnEle){
+    if (startBtnEle) {
       startBtnEle.addEventListener("click", this.returnFunct(9));
     }
-    
 
     // this.menu = new Menu({
     //   parentDiv: this.divGame,
@@ -830,15 +829,17 @@ Puzzle.prototype.next = function () {
   if (document.getElementById("canvmobi")) {
     document.getElementById("canvmobi").style.visibility = "hidden";
   }
-  if(document.getElementById("startBtn")){
+  if (document.getElementById("startBtn")) {
     document.getElementById("startBtn").disabled = true;
   }
-  if(document.getElementById("gameInstruction")){
+  if (document.getElementById("gameInstruction")) {
     setTimeout(() => {
       document.getElementById("gameInstruction").style.display = "none";
     }, 2000);
   }
-  
+  if (document.getElementById("gameImageName")) {
+    document.getElementById("gameImageName").style.visibility = "hidden";
+  }
 
   // evaluation of number of pieces
 
@@ -1108,7 +1109,14 @@ Puzzle.prototype.animateEnd = function () {
     (this.anim.cpt * xcou + this.anim.xfin) / (this.anim.cpt + 1) + "px";
   this.canvMobile.style.top =
     (this.anim.cpt * ycou + this.anim.yfin) / (this.anim.cpt + 1) + "px";
-}; // Puzzle.prototype.animateEnd
+  // Handle when Win the game
+  if (document.getElementById("gameImageName")) {
+    setTimeout(() => {
+      document.getElementById("gameImageName").style.visibility = "visible";
+    }, 500);
+  }
+
+  }; // Puzzle.prototype.animateEnd
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -   -
 // merges polyPieces[n2] and polyPieces[n1] into a new piece
@@ -1727,42 +1735,52 @@ let imglistArr = imgList;
 let random = Math.floor(Math.random() * 9);
 let imgData = imglistArr[random];
 
-let gameController = new Puzzle({
-  img: imgData?.src,
-  width: window.innerWidth,
-  height: window.innerHeight - 64,
-  idiv: "forPuzzle",
-});
+
 
 const PuzzleGame = () => {
-  const location = useLocation();
-  function isMiniature() {
-    return location.pathname.includes("/fullcpgrid/");
-  }
+  // const location = useLocation();
+  // function isMiniature() {
+  //   return location.pathname.includes("/fullcpgrid/");
+  // }
 
-  useLayoutEffect(() => {
-    autoStart = isMiniature(); // used for nice miniature in CodePen
-    return () => {
-      // window.removeEventListener("load", run);
-    };
-  }, [isMiniature()]);
+  const controller = function () {
+    new Puzzle({
+      img: imgData?.src,
+      width: window.innerWidth,
+      height: window.innerHeight - 75,
+      idiv: "forPuzzle",
+    });
+  };
+
+  useEffect(() => {
+    // autoStart = isMiniature(); // used for nice miniature in CodePen
+    controller();
+    return () => {};
+  }, []);
 
   return (
     <div className="gameContainer">
       {/* <img className="gameInstruction-bg" src={paperScroll} alt="game-instruction"/> */}
       <div id="gameInstruction">
-        <div className="content">
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text ever
-            since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only
-            five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s with
-            the release of Letraset sheets containing Lorem Ipsum passages, and
-            more recently with desktop publishing software like Aldus PageMaker
-            including versions of Lorem Ipsum.
-          </p>
+        <div className="content-container">
+          <div className="content">
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </p>
+            <button id="startBtn" className="mt-5">
+              Bắt Đầu
+            </button>
+          </div>
+
           {/* <img src={imgData?.src} alt="game-result-img" className="w-1/3"/>
           <h4>{imgData?.name}</h4> */}
           {/* <div>
@@ -1773,13 +1791,24 @@ const PuzzleGame = () => {
               Thoát
             </button>
           </div> */}
-          <button id="startBtn" className="">
-            Start
-          </button>
         </div>
       </div>
+      <div id="gameImageName" className="flex justify-center items-center">
+        <h4 className="text-lg font-bold text-orange-500">{imgData?.name}</h4>
+      </div>
       <div id="forPuzzle"></div>
-      <div id="msgSucess">You are all the best</div>
+      <div id="gameSummary">
+          <div className="gameSummary-content">
+            <div className="flex flex-row">
+              <button id="" className="">
+                Chơi lại
+              </button>
+              <button id="" className="ml-3">
+                Thoát
+              </button>
+          </div>
+          </div>
+      </div>
     </div>
   );
 };
