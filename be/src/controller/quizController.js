@@ -1,10 +1,10 @@
 import {
   getListQuiz,
   getQuiz,
-  createQuiz,
+  createQuizz,
   updateQuiz,
   deleteQuiz,
-} from "../service/quizServices";
+} from "../service/quizService.js";
 import { COMMON_CONSTANTS, QUIZ_CONSTANTS } from "../data/constant";
 import httpStatus from "http-status";
 const logger = require("../util/logger");
@@ -29,7 +29,7 @@ const getListQuizController = async (req, res, next) => {
     next(err);
   }
 };
-const getQuizController = async (req, res, next) => {
+const getQuizzController = async (req, res, next) => {
   try {
     const quizId = req.params.id;
     const result = await getQuiz(quizId);
@@ -43,12 +43,14 @@ const getQuizController = async (req, res, next) => {
 };
 const createQuizController = async (req, res, next) => {
   const payload = req.body;
+
   const { err, value } = createQuizSchema.validate(payload);
   if (err) {
     return res.status(httpStatus.BAD_REQUEST).json(new BadRequest(err));
   }
+  logger.info(value);
   try {
-    const result = await createQuiz(value);
+    const result = await createQuizz(value);
     if (result === QUIZ_CONSTANTS.CREATED_FAILED) {
       return res
         .status(httpStatus.BAD_REQUEST)
@@ -68,10 +70,9 @@ const updateQuizController = async (req, res, next) => {
   if (err) {
     return res.status(httpStatus.BAD_REQUEST).json(new BadRequest(err));
   }
-  const currentUser = req.user.userId;
   const quizId = req.params.id;
   try {
-    const result = await updateQuiz(currentUser, quizId, value.title);
+    const result = await updateQuiz(quizId, value);
     if (result === QUIZ_CONSTANTS.INVALID_AUTHOR) {
       return res
         .status(httpStatus.BAD_REQUEST)
@@ -94,9 +95,8 @@ const updateQuizController = async (req, res, next) => {
 };
 const deleteQuizController = async (req, res, next) => {
   try {
-    const currentUser = req.user.userId;
     const quizId = req.params.id;
-    const result = await deleteQuiz(currentUser, quizId);
+    const result = await deleteQuiz(quizId);
     if (result === QUIZ_CONSTANTS.INVALID_AUTHOR) {
       return res
         .status(httpStatus.BAD_REQUEST)
@@ -114,7 +114,7 @@ const deleteQuizController = async (req, res, next) => {
 };
 export {
   getListQuizController,
-  getQuizController,
+  getQuizzController,
   createQuizController,
   updateQuizController,
   deleteQuizController,

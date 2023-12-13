@@ -29,20 +29,20 @@ const getQuiz = async (quizId) => {
   }
   return quiz;
 };
-const createQuiz = async (payload) => {
+const createQuizz = async (payload) => {
   const quiz = await Quiz.create(payload);
   if (!quiz) {
     return QUIZ_CONSTANTS.CREATED_FAILED;
   }
   return quiz;
 };
-const updateQuiz = async (quizId, title) => {
+const updateQuiz = async (quizId, payload) => {
   const quiz = await Quiz.findOne({ where: { quizId: quizId } });
   if (!quiz) {
     return QUIZ_CONSTANTS.NOT_FOUND;
   }
 
-  const updatedQuiz = await quiz.update({ title: title });
+  const updatedQuiz = await quiz.update(payload);
   if (!updatedQuiz) {
     return QUIZ_CONSTANTS.UPDATED_FAILED;
   }
@@ -68,4 +68,4 @@ const deleteQuiz = async (quizId) => {
   }
   return QUIZ_CONSTANTS.DELETED;
 };
-export { getListQuiz, getQuiz, createQuiz, updateQuiz, deleteQuiz };
+export { getListQuiz, getQuiz, createQuizz, updateQuiz, deleteQuiz };

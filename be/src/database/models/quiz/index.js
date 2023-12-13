@@ -1,5 +1,5 @@
 const BaseModel = require("../base");
-const Questtion = require("../question");
+const Question = require("../question");
 const Game = require("../game");
 module.exports = class Quiz extends BaseModel {
   static tableName = "quiz";
@@ -10,8 +10,8 @@ module.exports = class Quiz extends BaseModel {
       as: "game",
     },
     {
-      model: Questtion,
-      as: "questions",
+      model: Question,
+      as: "question",
     },
   ];
   static schema = require("./schema");

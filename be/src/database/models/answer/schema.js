@@ -3,7 +3,7 @@ module.exports = {
   answerId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncreament: true,
+    autoIncrement: true,
   },
   content: {
     type: DataTypes.STRING,

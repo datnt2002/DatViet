@@ -1,6 +1,6 @@
 import {
   getListQuizController,
-  getQuizController,
+  getQuizzController,
   createQuizController,
   updateQuizController,
   deleteQuizController,
@@ -8,7 +8,7 @@ import {
 const express = require("express");
 const quizRouter = express.Router();
 quizRouter.get("/", getListQuizController);
-quizRouter.get("/:id", getQuizController);
+quizRouter.get("/:id", getQuizzController);
 quizRouter.post("/", createQuizController);
 quizRouter.put("/:id", updateQuizController);
 quizRouter.delete("/:id", deleteQuizController);

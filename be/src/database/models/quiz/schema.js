@@ -3,15 +3,11 @@ module.exports = {
   quizId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncreament: true,
+    autoIncrement: true,
   },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  quizImg: {
-    type: DataTypes.STRING,
-    allowNull: true,
   },
   description: {
     type: DataTypes.STRING,
