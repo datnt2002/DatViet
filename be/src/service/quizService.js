@@ -1,11 +1,12 @@
 const Quiz = require("../database/models/quiz");
 const Question = require("../database/models/question");
 const Answer = require("../database/models/answer");
-import Game from "../database/models/game";
+const ConstructedResponse = require("../database/models/constructedResponse");
 const { sequelize } = require("../config/database");
 import { COMMON_CONSTANTS, QUIZ_CONSTANTS } from "../data/constant";
 const getListQuiz = async () => {
   const quizzes = await Quiz.findAll({
+    where: { quizType: 1 }, //quizType = 1 is multiple choice
     include: [
       {
         model: Question,
@@ -19,10 +20,31 @@ const getListQuiz = async () => {
   }
   return quizzes;
 };
+const getListConstructedQuiz = async () => {
+  const quizzes = await Quiz.findAll({
+    where: { quizType: 2 },
+    include: [{ model: Question, include: [{ model: ConstructedResponse }] }],
+  });
+
+  if (!quizzes) {
+    return QUIZ_CONSTANTS.NOT_FOUND;
+  }
+  return quizzes;
+};
 const getQuiz = async (quizId) => {
   const quiz = await Quiz.findOne({
     where: { quizId: quizId },
     include: [{ model: Question, include: [{ model: Answer }] }],
+  });
+  if (!quiz) {
+    return QUIZ_CONSTANTS.NOT_FOUND;
+  }
+  return quiz;
+};
+const getContructedQuiz = async (quizId) => {
+  const quiz = await Quiz.findOne({
+    where: { quizId: quizId, quizType: 2 }, //quizType = 2 is constructed response
+    include: [{ model: Question, include: [{ model: ConstructedResponse }] }],
   });
   if (!quiz) {
     return QUIZ_CONSTANTS.NOT_FOUND;
@@ -68,4 +90,12 @@ const deleteQuiz = async (quizId) => {
   }
   return QUIZ_CONSTANTS.DELETED;
 };
-export { getListQuiz, getQuiz, createQuizz, updateQuiz, deleteQuiz };
+export {
+  getListQuiz,
+  getListConstructedQuiz,
+  getQuiz,
+  getContructedQuiz,
+  createQuizz,
+  updateQuiz,
+  deleteQuiz,
+};

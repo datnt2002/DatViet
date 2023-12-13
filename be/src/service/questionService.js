@@ -58,7 +58,6 @@ const createConstructedQuestion = async (data) => {
     }
   }
 };
-
 const updateQuestion = async (value) => {
   const results = [];
 
@@ -97,7 +96,7 @@ const updateConstructedQuestion = async (value) => {
   const results = [];
 
   for (const question of value) {
-    const result = await ConstructedResponse.findOne({
+    const result = await Question.findOne({
       where: { questionId: question.questionId },
     });
 
@@ -105,19 +104,13 @@ const updateConstructedQuestion = async (value) => {
       results.push(QUESTION_CONSTANTS.NOT_FOUND);
       continue; // Skip to the next iteration
     }
-
-    if (currentUser !== result.createdBy) {
-      results.push(QUESTION_CONSTANTS.INVALID_AUTHOR);
-      continue; // Skip to the next iteration
-    }
-    const answer = question.answer;
-    const resultAnswer = await Answer.findOne({ where: { answerId: answer.answerId } });
+    const answer = question.constructedResponse;
+    console.log("this is answer", question);
+    const resultAnswer = await ConstructedResponse.findOne({
+      where: { responseId: answer.responseId },
+    });
     if (!resultAnswer) {
       results.push(QUESTION_CONSTANTS.NOT_FOUND);
-      continue; // Skip to the next iteration
-    }
-    if (currentUser !== resultAnswer.createdBy) {
-      results.push(QUESTION_CONSTANTS.INVALID_AUTHOR);
       continue; // Skip to the next iteration
     }
     await resultAnswer.update({ ...answer });
@@ -127,7 +120,6 @@ const updateConstructedQuestion = async (value) => {
 
   return results;
 };
-
 export {
   createQuestion,
   createConstructedQuestion,

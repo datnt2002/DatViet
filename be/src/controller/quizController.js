@@ -1,6 +1,8 @@
 import {
   getListQuiz,
+  getListConstructedQuiz,
   getQuiz,
+  getContructedQuiz,
   createQuizz,
   updateQuiz,
   deleteQuiz,
@@ -29,10 +31,36 @@ const getListQuizController = async (req, res, next) => {
     next(err);
   }
 };
+const getListContructedQuizController = async (req, res, next) => {
+  try {
+    const result = await getListConstructedQuiz();
+    if (result === QUIZ_CONSTANTS.NOT_FOUND) {
+      return res
+        .status(httpStatus.NOT_FOUND)
+        .json(new BadRequest(QUIZ_CONSTANTS.NOT_FOUND));
+    }
+    return res.status(httpStatus.OK).json(new Success(COMMON_CONSTANTS.SUCCESS, result));
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+};
 const getQuizzController = async (req, res, next) => {
   try {
     const quizId = req.params.id;
     const result = await getQuiz(quizId);
+    if (result === QUIZ_CONSTANTS.NOT_FOUND) {
+      return res.status(httpStatus.BAD_REQUEST).json(new BadRequest("Quiz not found"));
+    }
+    return res.status(httpStatus.OK).json(new Success(QUIZ_CONSTANTS.FOUND, result));
+  } catch (err) {
+    next(err);
+  }
+};
+const getContructedQuizController = async (req, res, next) => {
+  try {
+    const quizId = req.params.id;
+    const result = await getContructedQuiz(quizId);
     if (result === QUIZ_CONSTANTS.NOT_FOUND) {
       return res.status(httpStatus.BAD_REQUEST).json(new BadRequest("Quiz not found"));
     }
@@ -114,7 +142,9 @@ const deleteQuizController = async (req, res, next) => {
 };
 export {
   getListQuizController,
+  getListContructedQuizController,
   getQuizzController,
+  getContructedQuizController,
   createQuizController,
   updateQuizController,
   deleteQuizController,

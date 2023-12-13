@@ -85,11 +85,16 @@ const ConstructedQuestionUpdateSchema = Joi.array().items({
     "string.max": "Question must have maximum 50 characters",
     "string.empty": "Question must not be empty",
   }),
-  answer: Joi.string().min(1).max(50).required().messages({
-    "string.min": "Answer must have at least 1 character",
-    "string.max": "Answer must have maximum 50 characters",
-    "string.empty": "Answer must not be empty",
-  }),
+  constructedResponse: Joi.object({
+    responseId: Joi.number().required().messages({
+      "string.empty": "response id must not be empty",
+    }),
+    content: Joi.string().min(1).max(50).required().messages({
+      "string.min": "Answer must have at least 1 character",
+      "string.max": "Answer must have maximum 50 characters",
+      "string.empty": "Answer must not be empty",
+    }),
+  }).required(),
 });
 export {
   questionSchema,
