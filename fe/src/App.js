@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminGuard from "./components/Layout/Guard/AdminGuard";
-import AdminPage from "./pages/admin";
+import QuanLiBoDe from "./pages/admin/tracNghiem";
 import Homepage from "./pages/home";
 import NotFound from "./components/Common/NotFound";
-import CreateQuestion from "./pages/admin/CreateQuestion";
+import CreateQuestion from "./pages/admin/tracNghiem/CreateQuestion";
 import ClientGuard from "./components/Layout/Guard/ClientGuard";
 import PuzzleGame from "./pages/puzzle";
 import Quiz from "./pages/quiz";
@@ -68,7 +68,7 @@ function App() {
           path="/admin"
           element={
             <AdminGuard>
-              <AdminPage />
+              <QuanLiBoDe />
             </AdminGuard>
           }
         />

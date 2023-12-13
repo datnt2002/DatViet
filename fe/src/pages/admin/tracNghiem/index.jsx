@@ -10,7 +10,7 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
-const AdminPage = () => {
+const QuanLiBoDe = () => {
   const columns = [
     {
       title: "Name",
@@ -118,4 +118,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default QuanLiBoDe;

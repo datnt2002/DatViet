@@ -147,7 +147,7 @@ const CreateQuestionInsideForm = () => {
         <Button
           type="primary"
           htmlType="submit"
-          className="bg-black w-full mt-4"
+          className="bg-[#6158dd] w-full mt-4"
         >
           Submit
         </Button>

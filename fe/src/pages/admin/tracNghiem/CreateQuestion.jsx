@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Content } from "antd/es/layout/layout";
-import CreateQuestionForm from "../../components/Container/FormContainer/CreateQuestionForm";
+import CreateQuestionForm from "../../../components/Container/FormContainer/CreateQuestionForm";
 import { Layout } from "antd";
 
 const CreateQuestion = () => {
