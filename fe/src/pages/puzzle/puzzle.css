@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
 #forPuzzle {
   border: none;
   left: 0px;
@@ -59,3 +54,78 @@ body {
   background-color: rgba(255, 230, 90, 1);
   cursor: pointer;
 }
+/* Custom */
+.gameContainer {
+  position: relative;
+}
+
+#gameInstruction {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/imgs/gamebg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#gameInstruction .content-container{
+  width: 700px;
+  height: 400px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute; */
+
+  background-image: url("../../assets/imgs/paperscroll.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  left: 35%;
+  top: 7%;
+}
+
+#gameInstruction .content-container .content{
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameInstruction-bg{
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
+
+#gameSummary {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+}
+
+#gameSummary .gameSummary-content{
+  background-image: url("../../assets/imgs/paperscroll.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: calc(50% -150px);
+  top: -50%;
+}
+
+
