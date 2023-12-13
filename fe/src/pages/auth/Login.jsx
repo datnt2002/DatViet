@@ -1,10 +1,27 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input } from "antd";
-
+import { Button, Form, Input } from "antd";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 import backgroundImage from "../../assets/imgs/backgr.jpg";
 
 const Login = () => {
-  const handleLogin = (values) => {};
+  const navigate = useNavigate();
+  const handleLogin = (values) => {
+    console.log(values);
+
+    if (values?.username === "admin" && values?.password === "123456") {
+      navigate("/admin");
+      sessionStorage.setItem("token", "afewawcawcwaefawfawef");
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "Wrong username or password",
+        icon: "error",
+        confirmButtonText: "Got it!",
+      });
+    }
+  };
   return (
     <div
       className="flex justify-end bg-cover w-screen min-h-screen"
@@ -46,10 +63,6 @@ const Login = () => {
                 type="password"
                 placeholder="password"
               />
-            </Form.Item>
-
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox className="-mt-2 mb-3">Remember me</Checkbox>
             </Form.Item>
 
             <Form.Item>
