@@ -17,11 +17,11 @@ const QuizRule = () => {
         }}
         className="bg-contain bg-bottom h-screen"
       >
-        <div className="h-screen relative">
+        <div className="h-screen relative ">
           <img src={paperScroll} alt="" className=" absolute w-full h-full" />
-          <div className="absolute z-50 w-full text-center ">
-            <h1 className=" font-dancing font-bold text-8xl text-amber-800 mt-20 mb-20 tracking-wide">
-              LUẬT CHƠI
+          <div className="flex flex-col absolute z-50 w-full text-center h-full self-center ">
+            <h1 className=" font-dancing font-bold text-8xl text-amber-800 mt-28 mb-16 tracking-wide">
+              TRUY TÌM CỔ VẬT
             </h1>
 
             <div className="my-5">
