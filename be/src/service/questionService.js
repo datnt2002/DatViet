@@ -39,15 +39,16 @@ const createConstructedQuestion = async (data) => {
   } else {
     let questions = data.questions;
     for (let i = 0; i < questions.length; i++) {
-      const newQuestion = await ConstructedResponse.create({
+      const newQuestion = await Question.create({
         content: questions[i].content,
         quizId: data.quizId,
       });
       if (!newQuestion) {
         return QUESTION_CONSTANTS.CREATED_FAILED;
       }
+      console.log("this is question Id", newQuestion.questionId);
       let answer = questions[i].answer;
-      const newAnswer = await Answer.create({
+      const newAnswer = await ConstructedResponse.create({
         content: answer,
         questionId: newQuestion.questionId,
       });
@@ -92,5 +93,44 @@ const updateQuestion = async (value) => {
 
   return results;
 };
+const updateConstructedQuestion = async (value) => {
+  const results = [];
 
-export { createQuestion, createConstructedQuestion, updateQuestion };
+  for (const question of value) {
+    const result = await ConstructedResponse.findOne({
+      where: { questionId: question.questionId },
+    });
+
+    if (!result) {
+      results.push(QUESTION_CONSTANTS.NOT_FOUND);
+      continue; // Skip to the next iteration
+    }
+
+    if (currentUser !== result.createdBy) {
+      results.push(QUESTION_CONSTANTS.INVALID_AUTHOR);
+      continue; // Skip to the next iteration
+    }
+    const answer = question.answer;
+    const resultAnswer = await Answer.findOne({ where: { answerId: answer.answerId } });
+    if (!resultAnswer) {
+      results.push(QUESTION_CONSTANTS.NOT_FOUND);
+      continue; // Skip to the next iteration
+    }
+    if (currentUser !== resultAnswer.createdBy) {
+      results.push(QUESTION_CONSTANTS.INVALID_AUTHOR);
+      continue; // Skip to the next iteration
+    }
+    await resultAnswer.update({ ...answer });
+    await result.update({ ...question });
+    results.push(QUESTION_CONSTANTS.UPDATED);
+  }
+
+  return results;
+};
+
+export {
+  createQuestion,
+  createConstructedQuestion,
+  updateQuestion,
+  updateConstructedQuestion,
+};

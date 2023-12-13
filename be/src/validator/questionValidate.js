@@ -76,9 +76,25 @@ const createConstructedQuestionSchema = Joi.object({
     "array.base": "Questions must be an array",
   }),
 });
+const ConstructedQuestionUpdateSchema = Joi.array().items({
+  questionId: Joi.string().required().messages({
+    "string.empty": "Question id must not be empty",
+  }),
+  content: Joi.string().min(10).max(50).required().messages({
+    "string.min": "Question must have at least 10 characters",
+    "string.max": "Question must have maximum 50 characters",
+    "string.empty": "Question must not be empty",
+  }),
+  answer: Joi.string().min(1).max(50).required().messages({
+    "string.min": "Answer must have at least 1 character",
+    "string.max": "Answer must have maximum 50 characters",
+    "string.empty": "Answer must not be empty",
+  }),
+});
 export {
   questionSchema,
   createQuestionSchema,
   createConstructedQuestionSchema,
   questionUpdateSchema,
+  ConstructedQuestionUpdateSchema,
 };
