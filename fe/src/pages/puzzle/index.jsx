@@ -2,6 +2,8 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./puzzle.css";
 import { useLocation } from "react-router-dom";
 import { imgList } from "./constants";
+import { useNavigate } from "react-router-dom";
+import { Spin } from "antd";
 
 let autoStart;
 const mrandom = Math.random,
@@ -715,6 +717,12 @@ on number of pieces
     this.divBoard.appendChild(this.canvMobile);
   }
   // set canvas is visible
+  if (document.getElementById("gameSummary")) {
+    document.getElementById("gameSummary").style.visibility = "hidden";
+  }
+  if (document.getElementById("loadingEle")) {
+    document.getElementById("loadingEle").style.display = "none";
+  }
   this.canvMobile.style.visibility = "hidden";
   this.canvMobile.width = parseFloat(this.divBoard.style.width);
   this.canvMobile.height = parseFloat(this.divBoard.style.height);
@@ -831,6 +839,9 @@ Puzzle.prototype.next = function () {
   }
   if (document.getElementById("startBtn")) {
     document.getElementById("startBtn").disabled = true;
+  }
+  if (document.getElementById("loadingEle")) {
+    document.getElementById("loadingEle").style.display = "inline";
   }
   if (document.getElementById("gameInstruction")) {
     setTimeout(() => {
@@ -1115,8 +1126,12 @@ Puzzle.prototype.animateEnd = function () {
       document.getElementById("gameImageName").style.visibility = "visible";
     }, 500);
   }
-
-  }; // Puzzle.prototype.animateEnd
+  if (document.getElementById("gameSummary")) {
+    setTimeout(() => {
+      document.getElementById("gameSummary").style.visibility = "visible";
+    }, 1000);
+  }
+}; // Puzzle.prototype.animateEnd
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -   -
 // merges polyPieces[n2] and polyPieces[n1] into a new piece
@@ -1735,9 +1750,8 @@ let imglistArr = imgList;
 let random = Math.floor(Math.random() * 9);
 let imgData = imglistArr[random];
 
-
-
 const PuzzleGame = () => {
+  const navigate = useNavigate();
   // const location = useLocation();
   // function isMiniature() {
   //   return location.pathname.includes("/fullcpgrid/");
@@ -1764,7 +1778,10 @@ const PuzzleGame = () => {
       <div id="gameInstruction">
         <div className="content-container">
           <div className="content">
-            <p>
+            <h4 className="font-bold text-orange-950 text-2xl">
+              Khám phá kỳ quan
+            </h4>
+            <p className="mt-2">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
@@ -1776,21 +1793,16 @@ const PuzzleGame = () => {
               publishing software like Aldus PageMaker including versions of
               Lorem Ipsum.
             </p>
-            <button id="startBtn" className="mt-5">
-              Bắt Đầu
+            <button
+              id="startBtn"
+              className="mt-5 bg-orange-400 hover:bg-orange-700 text-black font-bold py-2 px-4 rounded-full"
+            >
+              Bắt Đầu{" "}
+              <span id="loadingEle">
+                <Spin size="medium" />
+              </span>
             </button>
           </div>
-
-          {/* <img src={imgData?.src} alt="game-result-img" className="w-1/3"/>
-          <h4>{imgData?.name}</h4> */}
-          {/* <div>
-            <button id="" className="">
-              Chơi lại
-            </button>
-            <button id="" className="">
-              Thoát
-            </button>
-          </div> */}
         </div>
       </div>
       <div id="gameImageName" className="flex justify-center items-center">
@@ -1798,16 +1810,24 @@ const PuzzleGame = () => {
       </div>
       <div id="forPuzzle"></div>
       <div id="gameSummary">
-          <div className="gameSummary-content">
-            <div className="flex flex-row">
-              <button id="" className="">
-                Chơi lại
-              </button>
-              <button id="" className="ml-3">
-                Thoát
-              </button>
+        <div className="gameSummary-content">
+          <div className="flex flex-row">
+            <button
+              onClick={() => {}}
+              className="ml-3 mt-5 bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+            >
+              Audio
+            </button>
+            <button
+              onClick={() => {
+                navigate("/");
+              }}
+              className="ml-3 mt-5 bg-red-400 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full"
+            >
+              Thoát
+            </button>
           </div>
-          </div>
+        </div>
       </div>
     </div>
   );
