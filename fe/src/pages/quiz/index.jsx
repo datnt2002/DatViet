@@ -14,7 +14,7 @@ const Quiz = () => {
       >
         <div className="flex h-[39rem]">
           <div className="basis-1/2 relative">
-            <img src={paperScroll} alt="" className="absolute" />
+            <img src={paperScroll} alt="" className="absolute h-5/6" />
             <div className="absolute z-50 w-full text-center">
               <h1 className="font-dancing font-bold text-2xl text-amber-800 mb-8 tracking-wide">
                 1. Thực dân Pháp bắt đầu xâm lược nước ta vào năm nào?

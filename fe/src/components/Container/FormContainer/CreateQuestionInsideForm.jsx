@@ -52,22 +52,21 @@ const CreateQuestionInsideForm = () => {
                 }
               >
                 <Form.Item label="Câu hỏi" name={[field.name, "content"]}>
-                  <Input />
+                  <Input placeholder="Nhập câu hỏi" />
                 </Form.Item>
-
+                <Form.Item label="Hình Ảnh" name={[field.name, "questionImg"]}>
+                  <Input placeholder="Điền đường dẫn hình ảnh" />
+                </Form.Item>
                 {/* Nest Form.List */}
-                {/* <Form.Item label={CREATE_LESSON_FORM_FIELDS.ANSWER_LABEL}>
+                <Form.Item label="Câu Trả Lời">
                   <Form.List
-                    name={[
-                      field.name,
-                      CREATE_LESSON_FORM_FIELDS.ANSWER_ARRAY_NAME,
-                    ]}
+                    name={[field.name, "answers"]}
                     rules={[
                       {
                         validator: async (_, names) => {
                           if (!names || names.length < 1) {
                             return Promise.reject(
-                              new Error(VALIDATE_MESSAGE.EXPANDED_REQUIRED)
+                              new Error("Vui Lòng Thêm ít nhất 1 câu trả lời")
                             );
                           }
                         },
@@ -80,27 +79,17 @@ const CreateQuestionInsideForm = () => {
                           <Space key={subField.key}>
                             <Form.Item
                               noStyle
-                              name={[
-                                subField.name,
-                                CREATE_LESSON_FORM_FIELDS.ANSWER_CONTENT_NAME,
-                              ]}
+                              name={[subField.name, "answer-content"]}
                             >
-                              <Input
-                                placeholder={
-                                  CREATE_LESSON_FORM_FIELDS.ANSWER_LABEL
-                                }
-                              />
+                              <Input placeholder="Đáp Án" />
                             </Form.Item>
                             <Form.Item
                               noStyle
                               valuePropName="checked"
-                              name={[
-                                subField.name,
-                                CREATE_LESSON_FORM_FIELDS.CHECKBOX_CORRECT,
-                              ]}
+                              name={[subField.name, "isCorrect"]}
                             >
                               <Checkbox defaultChecked={false}>
-                               Câu trả lời đúng
+                                Đáp án đúng
                               </Checkbox>
                             </Form.Item>
                             <CloseOutlined
@@ -116,7 +105,7 @@ const CreateQuestionInsideForm = () => {
                           onClick={() => subOpt.add(initValueAnswer)}
                           block
                         >
-                          + Add Answer
+                          + Thêm Câu Trả Lời
                         </Button>
                         {subMeta.errors && subMeta.errors.length > 0 && (
                           <Form.ErrorList
@@ -127,12 +116,12 @@ const CreateQuestionInsideForm = () => {
                       </div>
                     )}
                   </Form.List>
-                </Form.Item> */}
+                </Form.Item>
               </Card>
             ))}
 
             <Button type="dashed" onClick={() => add(initValueQuestion)} block>
-              + Add Question
+              + Thêm Câu Hỏi
             </Button>
             <Form.ErrorList errors={errors} className="text-red-600" />
           </div>
@@ -149,7 +138,7 @@ const CreateQuestionInsideForm = () => {
           htmlType="submit"
           className="bg-[#6158dd] w-full mt-4"
         >
-          Submit
+          Gửi
         </Button>
       </Form.Item>
     </Form>

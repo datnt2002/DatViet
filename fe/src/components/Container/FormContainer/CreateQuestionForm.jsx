@@ -30,7 +30,11 @@ const CreateQuestionForm = () => {
             { required: true, message: "Vui Lòng Điền ô này trước khi gửi" },
           ]}
         >
-          <Input className="border" disabled={isCreatedSuccess} />
+          <Input
+            className="border"
+            disabled={isCreatedSuccess}
+            placeholder="Tên Bộ Đề"
+          />
         </Form.Item>
         <Form.Item
           name="content"

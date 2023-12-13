@@ -70,9 +70,9 @@
   background-size: cover;
 }
 #gameInstruction .content-container{
-  width: 700px;
-  height: 400px;
-  padding: 50px;
+  width: 800px;
+  height: 700px;
+  /* padding: 50px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,11 +86,11 @@
 
   position: absolute;
   left: 35%;
-  top: 7%;
+  /* top: 7%; */
 }
 
 #gameInstruction .content-container .content{
-  padding: 100px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
