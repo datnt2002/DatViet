@@ -22,7 +22,11 @@ const Quiz = () => {
                   <h1 className="font-dancing font-bold text-2xl text-amber-800 mb-8 tracking-wide">
                     1. Thực dân Pháp bắt đầu xâm lược nước ta vào năm nào?
                   </h1>
-                  <img className="h-full mx-auto" alt="" src="" />
+                  <img
+                    className="h-64 mx-auto"
+                    alt=""
+                    src="https://cdn.tgdd.vn/Files/2021/04/22/1345502/nguon-goc-dac-diem-cach-nuoi-va-bang-gia-cua-meo-anh-202203281928229223.jpg"
+                  />
                 </div>
               </div>
             </div>

@@ -11,11 +11,13 @@ import QuizRule from "./pages/quiz/QuizRule";
 import TreasureRule from "./pages/treasure/TreasureRule";
 import Treasure from "./pages/treasure";
 import Summary from "./pages/quiz/summary";
+import Login from "./pages/auth/Login";
 
 function App() {
   return (
     <BrowserRouter basename="/">
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route
           path="/"
           element={
