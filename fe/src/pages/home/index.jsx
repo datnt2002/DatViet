@@ -6,12 +6,12 @@ import paperScroll from "../../assets/imgs/paperscroll.png";
 import bg from "../../assets/imgs/backgr.jpg";
 import puzzle from "../../assets/imgs/puzzle.jpg";
 import map from "../../assets/imgs/map.jpg";
-// import vuot from "../../assets/imgs/vuotchuong.jpg";
+import vuot from "../../assets/imgs/vuotchuong.jpg";
 
 const Homepage = () => {
   const navigate = useNavigate();
   const handleNavigateTruyTimBaoVat = () => {
-    navigate("/truy-tim-bao-vat");
+    navigate("/truy-tim-bao-vat-rule");
   };
   const handleNavigatePuzzle = () => {
     navigate("/puzzle");
@@ -72,16 +72,16 @@ const Homepage = () => {
               KHÁM PHÁ KÌ QUAN
             </h1>
           </div>
-          {/* <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+          <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
             <img
               src={vuot}
               alt=""
               className="h-20 aspect-video rounded-2xl mr-3"
             />
             <h1 className="text-xl self-center font-semibold">
-              Vượt chướng ngại vật
+              VƯỢT CHƯỚNG NGẠI VẬT
             </h1>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
