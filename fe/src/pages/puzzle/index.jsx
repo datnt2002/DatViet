@@ -1782,16 +1782,13 @@ const PuzzleGame = () => {
               Khám phá kỳ quan
             </h4>
             <p className="mt-2">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              1. Người chơi quan sát các miếng ghép phía dưới.
+            </p>
+            <p className="mt-2">
+              2. Kéo miếng ghép ở dưới lên trên, chính giữa màn hình.
+            </p>
+            <p className="mt-2">
+              3. Người chơi theo dõi các thông tin tư liệu tham khảo sau mỗi tranh.
             </p>
             <button
               id="startBtn"

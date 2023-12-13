@@ -16,6 +16,9 @@ const Homepage = () => {
   const handleNavigatePuzzle = () => {
     navigate("/puzzle");
   };
+  const handleNavigateTreasure = () => {
+    navigate("/giai-ma-kho-bau-rule");
+  };
   return (
     <div>
       <div
@@ -49,7 +52,10 @@ const Homepage = () => {
               TRUY TÌM CỔ VẬT
             </h1>
           </div>
-          <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+          <div
+            onClick={handleNavigateTreasure}
+            className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90"
+          >
             <img
               src={map}
               alt=""

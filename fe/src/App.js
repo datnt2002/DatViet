@@ -8,6 +8,8 @@ import ClientGuard from "./components/Layout/Guard/ClientGuard";
 import PuzzleGame from "./pages/puzzle";
 import Quiz from "./pages/quiz";
 import QuizRule from "./pages/quiz/QuizRule";
+import TreasureRule from "./pages/treasure/TreasureRule";
+import Treasure from "./pages/treasure";
 
 function App() {
   return (
@@ -45,6 +47,23 @@ function App() {
             </ClientGuard>
           }
         />
+        <Route
+          path="/giai-ma-kho-bau-rule"
+          element={
+            <ClientGuard>
+              <TreasureRule />
+            </ClientGuard>
+          }
+        />
+        <Route
+          path="/giai-ma-kho-bau"
+          element={
+            <ClientGuard>
+              <Treasure />
+            </ClientGuard>
+          }
+        />
+
         <Route
           path="/admin"
           element={
