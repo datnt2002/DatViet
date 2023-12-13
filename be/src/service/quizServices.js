@@ -21,9 +21,8 @@ const getListQuiz = async () => {
 };
 const getQuiz = async (quizId) => {
   const quiz = await Quiz.findOne({
-    where: { quizId: quizId, isDeleted: false },
+    where: { quizId: quizId },
     include: [{ model: Question, include: [{ model: Answer }] }],
-    attributes: { exclude: dataToExclude },
   });
   if (!quiz) {
     return QUIZ_CONSTANTS.NOT_FOUND;
