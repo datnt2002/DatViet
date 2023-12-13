@@ -24,7 +24,7 @@ function App() {
         <Route
           path="/puzzle"
           element={
-            <ClientGuard>
+            <ClientGuard hasBack={true}>
               <PuzzleGame />
             </ClientGuard>
           }
