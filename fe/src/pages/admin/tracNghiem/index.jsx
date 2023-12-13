@@ -1,25 +1,18 @@
 import React from "react";
 import { Layout, Popconfirm, Space, Table, Tag } from "antd";
 import { Content } from "antd/es/layout/layout";
-import {
-  EyeOutlined,
-  EditOutlined,
-  DeleteOutlined,
-  SmileOutlined,
-  SyncOutlined,
-} from "@ant-design/icons";
+import { EyeOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const QuanLiBoDe = () => {
   const columns = [
     {
-      title: "Name",
+      title: "STT",
       dataIndex: "name",
       key: "name",
-      render: (text) => <a>{text}</a>,
     },
     {
-      title: "Age",
+      title: "Tên Bộ Đề",
       dataIndex: "age",
       key: "age",
     },

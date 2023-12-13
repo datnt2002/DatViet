@@ -1804,7 +1804,9 @@ const PuzzleGame = () => {
         </div>
       </div>
       <div id="gameImageName" className="flex justify-center items-center">
-        <h4 className="text-lg font-bold text-orange-500">{imgData?.name}</h4>
+        <h4 className="text-4xl my-2 font-dancing font-bold text-amber-800">
+          {imgData?.name}
+        </h4>
       </div>
       <div id="forPuzzle"></div>
       <div id="gameSummary">
