@@ -6,7 +6,7 @@ import paperScroll from "../../assets/imgs/paperscroll.png";
 import bg from "../../assets/imgs/backgr.jpg";
 import puzzle from "../../assets/imgs/puzzle.jpg";
 import map from "../../assets/imgs/map.jpg";
-import vuot from "../../assets/imgs/vuotchuong.jpg";
+// import vuot from "../../assets/imgs/vuotchuong.jpg";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -24,9 +24,9 @@ const Homepage = () => {
         }}
         className="bg-contain bg-bottom h-screen flex flex-1 flex-col md:flex-row"
       >
-        <div className="text-center mt-20 h-[27rem] basis-1/2 relative">
-          <img src={paperScroll} alt="" className="absolute" />
-          <div className="absolute z-50 top-1/3 left-32">
+        <div className="text-center  h-screen basis-1/2 relative flex justify-center">
+          <img src={paperScroll} alt="" className=" absolute w-full h-full" />
+          <div className="absolute z-50 self-center">
             <h1 className="font-dancing font-bold text-8xl text-amber-800 mb-8 tracking-wide">
               CHỦ NHÂN
             </h1>
