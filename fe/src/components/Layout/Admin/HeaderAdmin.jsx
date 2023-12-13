@@ -8,10 +8,12 @@ import AvatarAdmin from "./AvatarAdmin";
 const HeaderAdmin = () => {
   return (
     <Layout>
-      <Header className="flex bg-white h-16">
-        <div className="flex w-28 items-center mx-auto">
+      <Header className="flex bg-[#6158dd] h-16">
+        <div className="flex w-auto items-center mx-auto">
           <Link className="text-[#F5F5F5] text-xl">
-            <h1 className="text-black">Nhân Tài Đất Việt</h1>
+            <h1 className="text-white font-dancing w-auto">
+              Nhân Tài Đất Việt
+            </h1>
           </Link>
         </div>
 
@@ -19,7 +21,6 @@ const HeaderAdmin = () => {
           <AvatarAdmin />
         </div>
       </Header>
-      <Divider className="bg-black my-0 border-b-2" />
     </Layout>
   );
 };
