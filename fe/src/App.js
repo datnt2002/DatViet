@@ -10,6 +10,7 @@ import Quiz from "./pages/quiz";
 import QuizRule from "./pages/quiz/QuizRule";
 import TreasureRule from "./pages/treasure/TreasureRule";
 import Treasure from "./pages/treasure";
+import Summary from "./pages/quiz/summary";
 
 function App() {
   return (
@@ -44,6 +45,14 @@ function App() {
           element={
             <ClientGuard>
               <QuizRule />
+            </ClientGuard>
+          }
+        />
+        <Route
+          path="/truy-tim-bao-vat-summary"
+          element={
+            <ClientGuard>
+              <Summary />
             </ClientGuard>
           }
         />
