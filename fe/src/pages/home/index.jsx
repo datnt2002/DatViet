@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import quizGame from "../../assets/imgs/quizGame.webp";
+import quizGame from "../../assets/imgs/truytimcovat.jpg";
 import paperScroll from "../../assets/imgs/paperscroll.png";
 import bg from "../../assets/imgs/backgr.jpg";
 import puzzle from "../../assets/imgs/puzzle.jpg";
@@ -22,16 +22,16 @@ const Homepage = () => {
         style={{
           backgroundImage: `url(${bg})`,
         }}
-        className="bg-cover bg-bottom h-screen flex flex-1 flex-col md:flex-row"
+        className="bg-contain bg-bottom h-screen flex flex-1 flex-col md:flex-row"
       >
         <div className="text-center mt-20 h-[27rem] basis-1/2 relative">
           <img src={paperScroll} alt="" className="absolute" />
-          <div className="absolute z-50 top-1/3 left-1/4">
+          <div className="absolute z-50 top-1/3 left-32">
             <h1 className="font-dancing font-bold text-8xl text-amber-800 mb-8 tracking-wide">
-              Chủ Nhân
+              CHỦ NHÂN
             </h1>
             <h1 className="font-dancing font-bold text-8xl text-amber-800 tracking-wide">
-              Đất Việt
+              ĐẤT VIỆT
             </h1>
           </div>
         </div>
@@ -45,8 +45,8 @@ const Homepage = () => {
               alt=""
               className="h-20 aspect-video rounded-2xl mr-3"
             />
-            <h1 className="text-xl self-center font-semibold">
-              Truy Tìm Cổ Vật
+            <h1 className="text-2xl self-center font-semibold">
+              TRUY TÌM CỔ VẬT
             </h1>
           </div>
           <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
@@ -55,8 +55,8 @@ const Homepage = () => {
               alt=""
               className="h-20 aspect-video rounded-2xl mr-3"
             />
-            <h1 className="text-xl self-center font-semibold">
-              Giải Mã Kho Báu
+            <h1 className="text-2xl self-center font-semibold">
+              GIẢI MÃ KHO BÁU
             </h1>
           </div>
           <div
@@ -68,11 +68,11 @@ const Homepage = () => {
               alt=""
               className="h-20 aspect-video rounded-2xl mr-3"
             />
-            <h1 className="text-xl self-center font-semibold">
-              Khám Phá Kì Quan
+            <h1 className="text-2xl self-center font-semibold">
+              KHÁM PHÁ KÌ QUAN
             </h1>
           </div>
-          <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+          {/* <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
             <img
               src={vuot}
               alt=""
@@ -81,7 +81,7 @@ const Homepage = () => {
             <h1 className="text-xl self-center font-semibold">
               Vượt chướng ngại vật
             </h1>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

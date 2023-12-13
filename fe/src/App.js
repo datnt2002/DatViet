@@ -7,6 +7,7 @@ import CreateQuestion from "./pages/admin/CreateQuestion";
 import ClientGuard from "./components/Layout/Guard/ClientGuard";
 import PuzzleGame from "./pages/puzzle";
 import Quiz from "./pages/quiz";
+import ruleQuiz from "./pages/quiz/ruleQuiz";
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
           element={
             <ClientGuard>
               <Quiz />
+            </ClientGuard>
+          }
+        />
+        <Route
+          path="/truy-tim-bao-vat-rule"
+          element={
+            <ClientGuard>
+              <ruleQuiz />
             </ClientGuard>
           }
         />
