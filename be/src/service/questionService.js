@@ -1,6 +1,7 @@
 const Question = require("../database/models/question");
 const Quiz = require("../database/models/quiz");
 const Answer = require("../database/models/answer");
+const ConstructedResponse = require("../database/models/constructedResponse");
 const { sequelize } = require("../config/database");
 import { QUIZ_CONSTANTS, QUESTION_CONSTANTS } from "../data/constant";
 const createQuestion = async (data) => {
@@ -31,6 +32,32 @@ const createQuestion = async (data) => {
     }
   }
 };
+const createConstructedQuestion = async (data) => {
+  const quiz = await Quiz.findOne({ where: { quizId: data.quizId } });
+  if (!quiz) {
+    return QUIZ_CONSTANTS.NOT_FOUND;
+  } else {
+    let questions = data.questions;
+    for (let i = 0; i < questions.length; i++) {
+      const newQuestion = await ConstructedResponse.create({
+        content: questions[i].content,
+        quizId: data.quizId,
+      });
+      if (!newQuestion) {
+        return QUESTION_CONSTANTS.CREATED_FAILED;
+      }
+      let answer = questions[i].answer;
+      const newAnswer = await Answer.create({
+        content: answer,
+        questionId: newQuestion.questionId,
+      });
+      if (!newAnswer) {
+        return QUESTION_CONSTANTS.CREATED_FAILED;
+      }
+    }
+  }
+};
+
 const updateQuestion = async (value) => {
   const results = [];
 
@@ -66,4 +93,4 @@ const updateQuestion = async (value) => {
   return results;
 };
 
-export { createQuestion, updateQuestion };
+export { createQuestion, createConstructedQuestion, updateQuestion };

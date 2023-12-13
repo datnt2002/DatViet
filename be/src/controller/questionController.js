@@ -1,10 +1,15 @@
-import { createQuestion, updateQuestion } from "../service/questionService.js";
+import {
+  createQuestion,
+  createConstructedQuestion,
+  updateQuestion,
+} from "../service/questionService.js";
 import httpStatus from "http-status";
 import { QUESTION_CONSTANTS } from "../data/constant.js";
 import {
   questionSchema,
   createQuestionSchema,
   questionUpdateSchema,
+  createConstructedQuestionSchema,
 } from "../validator/questionValidate.js";
 const createQuestionController = async (req, res, next) => {
   try {
@@ -16,7 +21,33 @@ const createQuestionController = async (req, res, next) => {
         message: error.message,
       });
     }
-    const result = await createQuestion(value);
+    const result = await createQuestion(data);
+    if (result == QUESTION_CONSTANTS.INVALID_AUTHOR) {
+      return res.status(httpStatus.BAD_REQUEST).json({
+        status: httpStatus.BAD_REQUEST,
+        message: QUESTION_CONSTANTS.INVALID_AUTHOR,
+      });
+    }
+    return res.status(httpStatus.CREATED).json({
+      status: httpStatus.CREATED,
+      message: QUESTION_CONSTANTS.CREATED,
+      data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+const createConstructedQuestionController = async (req, res, next) => {
+  try {
+    const data = req.body;
+    const { error, value } = createConstructedQuestionSchema.validate(data);
+    if (error) {
+      return res.status(httpStatus.BAD_REQUEST).json({
+        status: httpStatus.BAD_REQUEST,
+        message: error.message,
+      });
+    }
+    const result = await createConstructedQuestion(value);
     if (result == QUESTION_CONSTANTS.INVALID_AUTHOR) {
       return res.status(httpStatus.BAD_REQUEST).json({
         status: httpStatus.BAD_REQUEST,
@@ -63,4 +94,8 @@ const updateQuestionController = async (req, res, next) => {
     next(error);
   }
 };
-export { createQuestionController, updateQuestionController };
+export {
+  createQuestionController,
+  createConstructedQuestionController,
+  updateQuestionController,
+};

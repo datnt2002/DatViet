@@ -1,20 +1,13 @@
 const { Sequelize, DataTypes } = require("sequelize");
+
 module.exports = {
-  quizId: {
+  responseId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  title: {
+  content: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  description: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  quizType: {
-    type: DataTypes.INTEGER,
-    defaultValue: 0,
   },
 };
