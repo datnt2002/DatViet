@@ -6,4 +6,18 @@
     margin-left: -2px;
     float: left;
     text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.cross-correct .crossword-letter {
+    background-color: lightgreen;
+}
+
+.cross-wrong .crossword-letter {
+    background-color: lightcoral;
+}
+
+.cross-correct .crossword-letter-keyword{
+    color: yellow;
+    font-size: xx-large;
 }

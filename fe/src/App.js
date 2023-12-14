@@ -52,7 +52,7 @@ function App() {
         <Route
           path="/truy-tim-bao-vat"
           element={
-            <ClientGuard>
+            <ClientGuard hasBack={true}>
               <Quiz />
             </ClientGuard>
           }
@@ -60,7 +60,7 @@ function App() {
         <Route
           path="/truy-tim-bao-vat-rule"
           element={
-            <ClientGuard>
+            <ClientGuard hasBack={true}>
               <QuizRule />
             </ClientGuard>
           }
@@ -68,7 +68,7 @@ function App() {
         <Route
           path="/truy-tim-bao-vat-choose"
           element={
-            <ClientGuard>
+            <ClientGuard hasBack={true}>
               <ChooseQuiz />
             </ClientGuard>
           }
@@ -84,7 +84,7 @@ function App() {
         <Route
           path="/giai-ma-kho-bau-rule"
           element={
-            <ClientGuard>
+            <ClientGuard hasBack={true}>
               <TreasureRule />
             </ClientGuard>
           }
@@ -92,7 +92,7 @@ function App() {
         <Route
           path="/giai-ma-kho-bau"
           element={
-            <ClientGuard>
+            <ClientGuard hasBack={true}>
               <Treasure />
             </ClientGuard>
           }
