@@ -849,7 +849,7 @@ Puzzle.prototype.next = function () {
     }, 2000);
   }
   if (document.getElementById("gameImageName")) {
-    document.getElementById("gameImageName").style.visibility = "hidden";
+    document.getElementById("gameImageName").style.display = "none";
   }
 
   // evaluation of number of pieces
@@ -1123,7 +1123,7 @@ Puzzle.prototype.animateEnd = function () {
   // Handle when Win the game
   if (document.getElementById("gameImageName")) {
     setTimeout(() => {
-      document.getElementById("gameImageName").style.visibility = "visible";
+      document.getElementById("gameImageName").style.display = "flex";
     }, 500);
   }
   if (document.getElementById("gameSummary")) {
@@ -1747,11 +1747,10 @@ function lookForLoops(tbCases) {
 } // function lookForLoops
 
 let imglistArr = imgList;
-let random = Math.floor(Math.random() * 9);
-let imgData = imglistArr[random];
-
 const PuzzleGame = () => {
   const navigate = useNavigate();
+  let random = Math.floor(Math.random() * 9);
+  let imgData = imglistArr[random];
   // const location = useLocation();
   // function isMiniature() {
   //   return location.pathname.includes("/fullcpgrid/");
