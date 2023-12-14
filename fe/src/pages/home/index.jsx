@@ -21,7 +21,7 @@ const Homepage = () => {
     navigate("/giai-ma-kho-bau-rule");
   };
   const handleNavigateObstacle = () => {
-    navigate("/obstacle");
+    navigate("/obstacle-rule");
   };
   return (
     <div>

@@ -21,6 +21,7 @@ import QuanLiTuLuan from "./pages/admin/dienDapAn/index.jsx";
 import ChooseQuiz from "./pages/quiz/ChooseQuiz.jsx";
 import EditQuestion from "./pages/admin/tracNghiem/EditQuestion.jsx";
 import ChooseBoDe from "./pages/treasure/ChooseBoDe.jsx";
+import Rule from "./pages/obstacle/Rule.jsx";
 
 function App() {
   // TODO: get init state
@@ -122,7 +123,14 @@ function App() {
             </ClientGuard>
           }
         />
-
+        <Route
+          path="/obstacle-rule"
+          element={
+            <ClientGuard hasBack={true}>
+              <Rule />
+            </ClientGuard>
+          }
+        />
         <Route
           path="/admin"
           element={
