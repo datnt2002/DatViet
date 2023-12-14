@@ -20,6 +20,7 @@ import CreateTuLuan from "./pages/admin/dienDapAn/CreateTuLuan.jsx";
 import QuanLiTuLuan from "./pages/admin/dienDapAn/index.jsx";
 import ChooseQuiz from "./pages/quiz/ChooseQuiz.jsx";
 import EditQuestion from "./pages/admin/tracNghiem/EditQuestion.jsx";
+import ChooseBoDe from "./pages/treasure/ChooseBoDe.jsx";
 
 function App() {
   // TODO: get init state
@@ -86,6 +87,14 @@ function App() {
           element={
             <ClientGuard hasBack={true}>
               <TreasureRule />
+            </ClientGuard>
+          }
+        />
+        <Route
+          path="/giai-ma-kho-bau-choose"
+          element={
+            <ClientGuard hasBack={true}>
+              <ChooseBoDe />
             </ClientGuard>
           }
         />
