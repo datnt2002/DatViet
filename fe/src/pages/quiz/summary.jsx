@@ -1,67 +1,84 @@
 import React from "react";
 import bg from "../../assets/imgs/backgr.jpg";
-import paperScroll from "../../assets/imgs/paperscroll.png";
 
-import { Progress, Space, Table } from "antd";
-import { Link } from "react-router-dom";
+import { Progress, Table } from "antd";
 import { useAppStore } from "../../store/appstate";
 import {
   CheckCircleOutlined,
-  CloseCircleOutlined
-} from '@ant-design/icons';
-
-const columns = [
-  {
-    title: "STT",
-    dataIndex: "key",
-    key: "key",
-    width: 100,
-  },
-  {
-    title: "Kết quả",
-    dataIndex: "result",
-    key: "result",
-    render: (val) => val ? <CheckCircleOutlined twoToneColor="#52c41a"/> : <CloseCircleOutlined twoToneColor="#eb2f96"/>
-  },
-  {
-    title: "Câu Hỏi",
-    dataIndex: "question",
-    key: "question",
-  },
-  {
-    title: "Lựa Chọn",
-    dataIndex: "selectedAnswerIndex",
-    key: "selectedAnswerIndex",
-  },
-  {
-    title: "Đáp Án Đúng",
-    dataIndex: "correctAnswerIndex",
-    key: "correctAnswerIndex",
-  },
-  {
-    title: "Tư Liệu",
-    dataIndex: "videoLink",
-    key: "videoLink",
-  },
-];
+  CloseCircleOutlined,
+  VideoCameraOutlined,
+  BookOutlined,
+} from "@ant-design/icons";
 
 const Summary = () => {
-  const {listQuestions} = useAppStore();
+  const { listQuestions } = useAppStore();
   let countCorrectAnswers = 0;
   const data = listQuestions.map((ques, index) => {
-    if(ques?.selectedAnswerIndex == ques?.correctAnswerIndex){
-      countCorrectAnswers +=1;
+    if (ques?.selectedAnswerIndex == ques?.correctAnswerIndex) {
+      countCorrectAnswers += 1;
     }
     return {
       key: index,
       question: ques?.question,
       result: ques?.selectedAnswerIndex == ques?.correctAnswerIndex,
-      selectedAnswerIndex: ques?.[`option${ques?.selectedAnswerIndex}`]?.content,
+      selectedAnswerIndex:
+        ques?.[`option${ques?.selectedAnswerIndex}`]?.content,
       correctAnswerIndex: ques?.[`option${ques?.correctAnswerIndex}`]?.content,
       videoLink: ques?.videoLink,
     };
   });
+  const columns = [
+    {
+      title: "STT",
+      dataIndex: "key",
+      key: "key",
+      width: 100,
+    },
+    {
+      title: "Kết quả",
+      dataIndex: "result",
+      key: "result",
+      render: (val) =>
+        val ? (
+          <CheckCircleOutlined twoToneColor="#52c41a" />
+        ) : (
+          <CloseCircleOutlined twoToneColor="#eb2f96" />
+        ),
+    },
+    {
+      title: "Câu Hỏi",
+      dataIndex: "question",
+      key: "question",
+    },
+    {
+      title: "Lựa Chọn",
+      dataIndex: "selectedAnswerIndex",
+      key: "selectedAnswerIndex",
+    },
+    {
+      title: "Đáp Án Đúng",
+      dataIndex: "correctAnswerIndex",
+      key: "correctAnswerIndex",
+    },
+    {
+      title: "Tư Liệu",
+      dataIndex: "videoLink",
+      key: "videoLink",
+      render: (text) =>
+        text ? (
+          <VideoCameraOutlined
+            className="text-3xl cursor-pointer"
+            onClick={() => handleNavigate(text)}
+          />
+        ) : (
+          <BookOutlined className="text-3xl cursor-pointer" />
+        ),
+    },
+  ];
 
+  const handleNavigate = (text) => {
+    window.open(text, "_blank");
+  };
   return (
     <div
       style={{
@@ -75,9 +92,13 @@ const Summary = () => {
             TRUY TÌM CỔ VẬT
           </h1>
           <h3 className="text-center font-dancing text-3xl mb-4">
-             {`Số câu trả lời đúng: ${countCorrectAnswers}/${15}`}
+            {`Số câu trả lời đúng: ${countCorrectAnswers}/${15}`}
           </h3>
-          <Progress className="mx-auto mb-2" type="circle" percent={Math.floor(countCorrectAnswers/15*100)} />
+          <Progress
+            className="mx-auto mb-2"
+            type="circle"
+            percent={Math.floor((countCorrectAnswers / 15) * 100)}
+          />
           <div className="w-2/3 mx-auto">
             <Table
               columns={columns}
