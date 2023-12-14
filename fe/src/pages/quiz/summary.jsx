@@ -38,12 +38,7 @@ const Summary = () => {
       title: "Kết quả",
       dataIndex: "result",
       key: "result",
-      render: (val) =>
-        val ? (
-          <CheckCircleOutlined twoToneColor="#52c41a" />
-        ) : (
-          <CloseCircleOutlined twoToneColor="#eb2f96" />
-        ),
+      render: (val) => (val ? "Đúng" : "Sai"),
     },
     {
       title: "Câu Hỏi",
