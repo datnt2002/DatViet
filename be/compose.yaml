@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  app:
+    image: side_project
+    build: .
+    restart: always
+    ports:
+      - 80:5000
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+  mysqldb:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: sideproject
+      MYSQL_ROOT_PASSWORD: Hoanghandsome1
+    expose:
+      - 3306
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -h localhost
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+volumes:
+  db:
