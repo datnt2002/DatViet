@@ -2,12 +2,14 @@ const Question = require("../database/models/question");
 const Quiz = require("../database/models/quiz");
 const Answer = require("../database/models/answer");
 const ConstructedResponse = require("../database/models/constructedResponse");
+const logger = require("../util/logger");
 const { sequelize } = require("../config/database");
 import { QUIZ_CONSTANTS, QUESTION_CONSTANTS } from "../data/constant";
 const createQuestion = async (data) => {
   const quiz = await Quiz.findOne({
     where: { quizId: data.quizId, quizType: "Multiple-choice questions" },
   });
+
   if (!quiz) {
     return QUIZ_CONSTANTS.NOT_FOUND;
   } else {
@@ -15,6 +17,8 @@ const createQuestion = async (data) => {
     for (let i = 0; i < questions.length; i++) {
       const newQuestion = await Question.create({
         content: questions[i].content,
+        questionImg: questions[i].questionImg,
+        url: questions[i].url,
         quizId: data.quizId,
       });
       if (!newQuestion) {
@@ -45,6 +49,8 @@ const createConstructedQuestion = async (data) => {
     for (let i = 0; i < questions.length; i++) {
       const newQuestion = await Question.create({
         content: questions[i].content,
+        questionImg: questions[i].questionImg,
+        url: questions[i].url,
         quizId: data.quizId,
       });
       if (!newQuestion) {
@@ -72,11 +78,6 @@ const updateQuestion = async (value) => {
 
     if (!result) {
       results.push(QUESTION_CONSTANTS.NOT_FOUND);
-      continue; // Skip to the next iteration
-    }
-
-    if (currentUser !== result.createdBy) {
-      results.push(QUESTION_CONSTANTS.INVALID_AUTHOR);
       continue; // Skip to the next iteration
     }
     for (const answer of question.answer) {

@@ -5,7 +5,7 @@ import {
   updateConstructedQuestion,
 } from "../service/questionService.js";
 import httpStatus from "http-status";
-import { QUESTION_CONSTANTS } from "../data/constant.js";
+import { QUESTION_CONSTANTS,QUIZ_CONSTANTS } from "../data/constant.js";
 import {
   questionSchema,
   createQuestionSchema,
@@ -13,6 +13,7 @@ import {
   createConstructedQuestionSchema,
   ConstructedQuestionUpdateSchema,
 } from "../validator/questionValidate.js";
+const logger = require("../util/logger.js");
 const CreateQuestionController = async (req, res, next) => {
   try {
     const data = req.body;
@@ -23,11 +24,12 @@ const CreateQuestionController = async (req, res, next) => {
         message: error.message,
       });
     }
-    const result = await createQuestion(data);
-    if (result == QUESTION_CONSTANTS.INVALID_AUTHOR) {
+    logger.info("this is value", value)
+    const result = await createQuestion(value);
+    if(result ==QUIZ_CONSTANTS.NOT_FOUND){
       return res.status(httpStatus.BAD_REQUEST).json({
         status: httpStatus.BAD_REQUEST,
-        message: QUESTION_CONSTANTS.INVALID_AUTHOR,
+        message: QUIZ_CONSTANTS.NOT_FOUND,
       });
     }
     return res.status(httpStatus.CREATED).json({
@@ -51,10 +53,10 @@ const CreateConstructedQuestionController = async (req, res, next) => {
       });
     }
     const result = await createConstructedQuestion(value);
-    if (result == QUESTION_CONSTANTS.INVALID_AUTHOR) {
+    if (result == QUIZ_CONSTANTS.NOT_FOUND) {
       return res.status(httpStatus.BAD_REQUEST).json({
         status: httpStatus.BAD_REQUEST,
-        message: QUESTION_CONSTANTS.INVALID_AUTHOR,
+        message:QUIZ_CONSTANTS.NOT_FOUND,
       });
     }
     return res.status(httpStatus.CREATED).json({

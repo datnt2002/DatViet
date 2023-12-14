@@ -6,11 +6,11 @@ const questionSchema = Joi.object({
     "string.max": "Question must have maximum 50 characters",
     "string.empty": "Question must not be empty",
   }),
-  questionImg: Joi.string().messages({
-    "string.empty": "Question image must not be empty",
+  questionImg:Joi.string().messages({
+    "string.base": "questionImg must be a string",       
   }),
-  url: Joi.string().messages({
-    "string.empty": "URL must not be empty",
+  url:Joi.string().messages({
+    "string.base": "url must be a string",
   }),
   answer: Joi.array()
     .items(
@@ -20,10 +20,14 @@ const questionSchema = Joi.object({
           "string.max": "Answer must have maximum 50 characters",
           "string.empty": "Answer must not be empty",
         }),
-        isCorrect: Joi.boolean().required(),
+        isCorrect: Joi.boolean().required().messages({
+          "boolean.base": "isCorrect must be a boolean",
+          "boolean.empty": "isCorrect must not be empty",
+        }),
       })
     )
     .required(),
+    
 });
 const ConstructedResponseSchema = Joi.object({
   content: Joi.string().min(10).max(50).required().messages({
@@ -31,18 +35,17 @@ const ConstructedResponseSchema = Joi.object({
     "string.max": "Question must have maximum 50 characters",
     "string.empty": "Question must not be empty",
   }),
+  questionImg:Joi.string().messages({
+    "string.base": "questionImg must be a string",       
+  }),
+  url:Joi.string().messages({
+    "string.base": "url must be a string",
+  }),
   answer: Joi.string().min(1).max(50).required().messages({
     "string.min": "Answer must have at least 1 character",
     "string.max": "Answer must have maximum 50 characters",
     "string.empty": "Answer must not be empty",
   }),
-  questionImg: Joi.string().messages({
-    "string.empty": "Question image must not be empty",
-  }),
-  url: Joi.string().messages({
-    "string.empty": "URL must not be empty",
-  }),
-  
 });
 const questionUpdateSchema = Joi.array().items({
   questionId: Joi.string().required().messages({
@@ -52,6 +55,12 @@ const questionUpdateSchema = Joi.array().items({
     "string.min": "Question must have at least 10 characters",
     "string.max": "Question must have maximum 50 characters",
     "string.empty": "Question must not be empty",
+  }),
+  questionImg:Joi.string().messages({
+    "string.base": "questionImg must be a string",       
+  }),
+  url:Joi.string().messages({
+    "string.base": "url must be a string",
   }),
   answer: Joi.array()
     .items(
@@ -80,11 +89,10 @@ const createQuestionSchema = Joi.object({
   }),
 });
 const createConstructedQuestionSchema = Joi.object({
-  quizId: Joi.string().required().messages({
+  quizId: Joi.number().required().messages({
     "string.empty": "Quiz id must not be empty",
     "any.required": "Quiz id is required",
   }),
-
   questions: Joi.array().items(ConstructedResponseSchema).required().messages({
     "array.base": "Questions must be an array",
   }),
@@ -97,6 +105,12 @@ const ConstructedQuestionUpdateSchema = Joi.array().items({
     "string.min": "Question must have at least 10 characters",
     "string.max": "Question must have maximum 50 characters",
     "string.empty": "Question must not be empty",
+  }),
+  questionImg:Joi.string().messages({
+    "string.base": "questionImg must be a string",       
+  }),
+  url:Joi.string().messages({
+    "string.base": "url must be a string",
   }),
   constructedResponse: Joi.object({
     responseId: Joi.number().required().messages({
