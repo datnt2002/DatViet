@@ -534,3 +534,13 @@ export const questionList = [
     selectedAnswerIndex: 0, //update when user choose answer
   },
 ];
+
+export const questionGame2 = [
+  {
+    id: 'g1',
+    index: 1,
+    question: 'Nhân vật lịch sử được nhắc đến trong câu đố dưới đây là ai? ( Đáp án gồm 3 tiếng)',
+    desc: `Từ bẩy tuổi đã lên ngôi /n Việc dân, việc nước trọn đời lo toan/n Mở trường thi, chọn văn quan /n Lập Quốc Tử Giám luyện hàng danh nhân.`,
+    answer: 'Lý Nhân Tông',
+  },
+]
