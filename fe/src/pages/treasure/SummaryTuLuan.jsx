@@ -66,7 +66,7 @@ const SummaryTuLuan = () => {
     >
       <div className="min-h-screen  ">
         <div className="flex flex-col  w-full h-full ">
-          <h1 className="text-center font-dancing font-bold text-6xl text-amber-800 mt-8 mb-5 tracking-wide">
+          <h1 className="text-center font-dancing font-extrabold text-6xl text-amber-800 mt-8 mb-5 tracking-wide">
             GIẢI MÃ KHO BÁU
           </h1>
           <h3 className="text-center font-dancing text-3xl mb-4">

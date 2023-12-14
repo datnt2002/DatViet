@@ -54,9 +54,9 @@ const Treasure = () => {
       style={{
         backgroundImage: `url(${bg})`,
       }}
-      className="bg-contain  bg-bottom min-h-screen"
+      className="bg-contain bg-bottom min-h-screen"
     >
-      <div className="bg-white/80 p-2 rounded-2xl w-[95%] mx-auto mt-4">
+      <div className="bg-white p-2 rounded-2xl w-[95%] mx-auto mt-4">
         <Steps
           current={current}
           onChange={onChange}
@@ -78,9 +78,10 @@ const Treasure = () => {
           {question?.desc}
         </pre>
       </div>
-      <div className=" w-2/3 h-auto pb-8  pl-10 pt-6 rounded-2xl mx-auto">
+      <div className="w-96 h-auto pb-8 pl-10 pt-10 rounded-2xl mx-auto">
         <Input
           placeholder="Điền Đáp Án"
+          className="p-6"
           size="large"
           onChange={handleGetValue}
           value={listQuestionsTuLuan[current]?.currentAnswer}
