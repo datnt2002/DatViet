@@ -12,7 +12,7 @@ const HeaderAdmin = () => {
         <div className="flex w-auto items-center mx-auto">
           <Link className="text-[#F5F5F5] text-xl">
             <h1 className="text-white font-dancing w-auto">
-              Nhân Tài Đất Việt
+              Chủ Nhân Đất Việt
             </h1>
           </Link>
         </div>
