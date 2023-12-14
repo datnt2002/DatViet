@@ -1,45 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Layout, Popconfirm, Space, Table, Tag } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { EyeOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { useAppStore } from "../../../store/appstate";
+import { xoaBoDeTracNghiem } from "../../../services/tracNghiem.service";
 
 const QuanLiBoDe = () => {
+  const { listQuiz, getListTracNghiemSet } = useAppStore();
+  console.log(listQuiz);
+  useEffect(() => {
+    getListTracNghiemSet();
+  }, []);
+  const handleDelete = async (record) => {
+    try {
+      await xoaBoDeTracNghiem(record?.quizId);
+      await getListTracNghiemSet();
+    } catch (error) {
+      console.error("Error deleting quiz:", error);
+    }
+  };
+
   const columns = [
     {
       title: "STT",
-      dataIndex: "name",
-      key: "name",
+      dataIndex: "key",
+      key: "key",
     },
     {
       title: "Tên Bộ Đề",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "title",
+      key: "title",
     },
     {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-    },
-    {
-      title: "Tags",
-      key: "tags",
-      dataIndex: "tags",
-      render: (_, { tags }) => (
-        <>
-          {tags.map((tag) => {
-            let color = tag.length > 5 ? "geekblue" : "green";
-            if (tag === "loser") {
-              color = "volcano";
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
+      title: "Nội dung",
+      dataIndex: "content",
+      key: "content",
     },
     {
       title: "Action",
@@ -56,7 +52,9 @@ const QuanLiBoDe = () => {
             <Popconfirm
               title="Xóa bộ đề này?"
               description="Bạn có chắc muốn xóa bộ đề này?"
-              onConfirm={() => {}}
+              onConfirm={() => {
+                handleDelete(record);
+              }}
               okText="Xóa"
               cancelText="Trở Lại"
               okButtonProps={{
@@ -72,29 +70,16 @@ const QuanLiBoDe = () => {
       ),
     },
   ];
-  const data = [
-    {
-      key: "1",
-      name: "John Brown",
-      age: 32,
-      address: "New York No. 1 Lake Park",
-      tags: ["nice", "developer"],
-    },
-    {
-      key: "2",
-      name: "Jim Green",
-      age: 42,
-      address: "London No. 1 Lake Park",
-      tags: ["loser"],
-    },
-    {
-      key: "3",
-      name: "Joe Black",
-      age: 32,
-      address: "Sydney No. 1 Lake Park",
-      tags: ["cool", "teacher"],
-    },
-  ];
+
+  const data = listQuiz.map((quiz, index) => {
+    return {
+      key: index + 1,
+      title: quiz?.title,
+      content: quiz?.content,
+      quizId: quiz?.quizId,
+    };
+  });
+
   return (
     <>
       <Layout style={{ padding: "0 24px 24px" }}>

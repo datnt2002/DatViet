@@ -1,9 +1,24 @@
 import React from "react";
 import { CloseOutlined } from "@ant-design/icons";
-import { Button, Card, Checkbox, Form, Input, Space } from "antd";
+import { Button, Card, Checkbox, Form, Input, Space, Typography } from "antd";
+import { useAppStore } from "../../../store/appstate";
+import { useNavigate } from "react-router-dom";
 
 const CreateQuestionInsideForm = () => {
-  const handleSubmitQuestion = () => {};
+  const { quiz, createQuestionsTracNghiemSet, questions } = useAppStore();
+  const navigate = useNavigate();
+  const handleSubmitQuestion = (values) => {
+    console.log(values);
+    const data = {
+      quizId: quiz?.quizId.toString(),
+      questions: values?.questions,
+      navigate,
+    };
+    createQuestionsTracNghiemSet(data);
+  };
+  const [form] = Form.useForm();
+  console.log(quiz);
+
   const formLayout = {
     labelCol: {
       span: 4,
@@ -12,7 +27,6 @@ const CreateQuestionInsideForm = () => {
       span: 20,
     },
   };
-
   const initValueAnswer = { content: "", isCorrect: false };
   const initValueQuestion = { content: "" };
   return (
@@ -20,9 +34,7 @@ const CreateQuestionInsideForm = () => {
       {...formLayout}
       autoComplete="off"
       onFinish={handleSubmitQuestion}
-      initialValues={{
-        items: [{}],
-      }}
+      form={form}
     >
       <Form.List
         name="questions"
@@ -54,13 +66,13 @@ const CreateQuestionInsideForm = () => {
                 <Form.Item label="Câu hỏi" name={[field.name, "content"]}>
                   <Input placeholder="Nhập câu hỏi" />
                 </Form.Item>
-                <Form.Item label="Hình Ảnh" name={[field.name, "questionImg"]}>
+                {/* <Form.Item label="Hình Ảnh" name={[field.name, "questionImg"]}>
                   <Input placeholder="Điền đường dẫn hình ảnh" />
-                </Form.Item>
+                </Form.Item> */}
                 {/* Nest Form.List */}
                 <Form.Item label="Câu Trả Lời">
                   <Form.List
-                    name={[field.name, "answers"]}
+                    name={[field.name, "answer"]}
                     rules={[
                       {
                         validator: async (_, names) => {
@@ -79,7 +91,7 @@ const CreateQuestionInsideForm = () => {
                           <Space key={subField.key}>
                             <Form.Item
                               noStyle
-                              name={[subField.name, "answer-content"]}
+                              name={[subField.name, "content"]}
                             >
                               <Input placeholder="Đáp Án" />
                             </Form.Item>
@@ -127,7 +139,13 @@ const CreateQuestionInsideForm = () => {
           </div>
         )}
       </Form.List>
-
+      <Form.Item noStyle shouldUpdate>
+        {() => (
+          <Typography>
+            <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>
+          </Typography>
+        )}
+      </Form.Item>
       <Form.Item
         wrapperCol={{
           span: 24,

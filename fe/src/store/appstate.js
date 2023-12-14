@@ -1,22 +1,33 @@
 import { create } from "zustand";
 import {
-  createGameTopicTracNghiem,
+  createQuestionsTracNghiem,
   createQuizTracNghiem,
-} from "../services/tracNghiem";
+  getListTracNghiem,
+} from "../services/tracNghiem.service";
 
 export const useAppStore = create((set, get) => ({
-  game: {},
-  createGameTopicTracNghiemSet: async (data) => {
-    const newData = await createGameTopicTracNghiem(data);
-    if (newData.status === 200) {
-      set({ game: newData.data });
-    }
-  },
   quiz: {},
   createQuizTracNghiemSet: async (data) => {
     const newData = await createQuizTracNghiem(data);
     if (newData.status === 201) {
-      set({ quiz: newData });
+      set({ quiz: newData?.data });
+    }
+  },
+  questions: [],
+  createQuestionsTracNghiemSet: async (data) => {
+    console.log(data);
+    const newData = await createQuestionsTracNghiem({
+      quizId: data?.quizId,
+      questions: data?.questions,
+    });
+    console.log(newData);
+  },
+  listQuiz: [],
+  getListTracNghiemSet: async () => {
+    const newData = await getListTracNghiem();
+    console.log(newData);
+    if (newData?.status === 200) {
+      set({ listQuiz: newData?.data });
     }
   },
 }));
