@@ -537,10 +537,138 @@ export const questionList = [
 
 export const questionGame2 = [
   {
-    id: 'g1',
+    id: "g1",
     index: 1,
-    question: 'Nhân vật lịch sử được nhắc đến trong câu đố dưới đây là ai? ( Đáp án gồm 3 tiếng)',
-    desc: `Từ bẩy tuổi đã lên ngôi /n Việc dân, việc nước trọn đời lo toan/n Mở trường thi, chọn văn quan /n Lập Quốc Tử Giám luyện hàng danh nhân.`,
-    answer: 'Lý Nhân Tông',
+    question:
+      "Nhân vật lịch sử được nhắc đến trong câu đố dưới đây là ai? ( Đáp án gồm 3 tiếng)",
+    desc: `Từ bẩy tuổi đã lên ngôi \n Việc dân, việc nước trọn đời lo toan \n Mở trường thi, chọn văn quan \n Lập Quốc Tử Giám luyện hàng danh nhân.`,
+    answer: "Lý Nhân Tông",
+    currentAnswer: "",
   },
-]
+  {
+    id: "g2",
+    index: 2,
+    question:
+      "Bộ quốc sử đầu tiên của nước ta có tên là gì? ( Đáp án gồm 6 tiếng)",
+    desc: "",
+    answer: "Đại Việt sử kí toàn thư",
+    currentAnswer: "",
+  },
+  {
+    id: "g3",
+    index: 3,
+    question:
+      "Những câu thơ dưới đây có nhắc tới vị thánh nào trong truyền thuyết? ( Đáp án gồm 2 tiếng)",
+    desc: `Lên ba chưa biết mỉm cười \n Nghe tin giặc dữ cất lời nói ngay \n Thoắt thành tráng sĩ ra tay \n Giúp dân cứu nước rồi bay về trời.`,
+    answer: "Thánh Gióng",
+    currentAnswer: "",
+  },
+  {
+    id: "g4",
+    index: 4,
+    question:
+      "Ngày 2/9/1945, Bác Hồ đã đọc bản Tuyên ngôn độc lập tại quảng trường nào? ( Đáp án gồm 2 tiếng)",
+    desc: ``,
+    answer: "Ba Đình",
+    currentAnswer: "",
+  },
+  {
+    id: "g5",
+    index: 5,
+    question:
+      "Sau khi lên ngôi, vua Đinh Tiên Hoàng đã đặt quốc hiệu cho nước ta là gì? ( Đáp án gồm 3 tiếng)",
+    desc: ``,
+    answer: "Đại Cồ Việt",
+    currentAnswer: "",
+  },
+  {
+    id: "g6",
+    index: 6,
+    question:
+      "Trong truyền thuyết, vị vua nào được Thần Kim Quy tặng móng rùa thần? ( Đáp án gồm 3 tiếng)",
+    desc: ``,
+    answer: "An Dương Vương",
+    currentAnswer: "",
+  },
+  {
+    id: "g7",
+    index: 7,
+    question:
+      "Nêu tên gọi vùng trồng lúa nước lớn nhất nước ta. ( Đáp án gồm 2 tiếng)",
+    desc: ``,
+    answer: "Nam Bộ",
+    currentAnswer: "",
+  },
+  {
+    id: "g8",
+    index: 8,
+    question:
+      "Nhà ở truyền thống của vùng Đồng bằng Bắc Bộ thường có mấy gian?  ( Đáp án gồm 1 tiếng)",
+    desc: ``,
+    answer: "3",
+    currentAnswer: "",
+  },
+  {
+    id: "g9",
+    index: 9,
+    question:
+      "Nêu tên loại khăn trong trang phục truyền thống của người dân Nam Bộ. ( Đáp án gồm 2 tiếng)",
+    desc: ``,
+    answer: "Khăn rằn",
+    currentAnswer: "",
+  },
+  {
+    id: "g10",
+    index: 10,
+    question:
+      "Tên người nữ anh hùng đã khởi xướng và lãnh đạo phong trào Đồng khởi ở tỉnh Bến Tre. ( Đáp án gồm 3 tiếng)",
+    desc: ``,
+    answer: "Nguyễn Thị Định",
+    currentAnswer: "",
+  },
+  {
+    id: "g11",
+    index: 11,
+    question:
+      "Tên dãy núi cao và đồ sộ nhất nước ta, nằm ở vùng Trung du và miền núi Bắc Bộ. ( Đáp án gồm 3 tiếng)",
+    desc: ``,
+    answer: "Hoàng Liên Sơn",
+    currentAnswer: "",
+  },
+  {
+    id: "g12",
+    index: 12,
+    question:
+      "Tên cột cờ được xây dựng trên đỉnh núi Rồng, huyện Đồng Văn, tỉnh Hà Giang. ( Đáp án gồm 2 tiếng)",
+    desc: ``,
+    answer: "Lũng Cú",
+    currentAnswer: "",
+  },
+  {
+    id: "g13",
+    index: 13,
+    question:
+      "Tên lễ hội ở vùng Duyên hải miền Trung, bắt nguồn từ tục thờ cá voi. ( Đáp án gồm 4 tiếng)",
+    desc: ``,
+    answer: "Lễ Rước cá Ông",
+    currentAnswer: "",
+  },
+  {
+    id: "g14",
+    index: 14,
+    question:
+      "Nhân vật lịch sử được nhắc đến trong câu đố dưới đây là ai? ( Đáp án gồm 2 tiếng)",
+    desc: `Lam Sơn tụ nghĩa muôn dân \n Mười năm mưu lược chống quân bạo tàn \n Giặc tan, non nước khải hoàn \n Giữa hồ trao lại rùa vàng gươm thiêng.`,
+    answer: "Lê Lợi",
+    currentAnswer: "",
+  },
+  {
+    id: "g15",
+    index: 15,
+    question:
+      "Năm 1911, Nguyễn Tất Thành ra đi tìm đường cứu nước với tên gọi là gì? ( Đáp án gồm 2 tiếng)",
+    desc: ``,
+    answer: "Văn Ba",
+    currentAnswer: "",
+  },
+];

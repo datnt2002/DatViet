@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const TreasureRule = () => {
   const navigate = useNavigate();
   const handleStartGiaiMa = () => {
-    navigate("/giai-ma-kho-bau");
+    navigate("/giai-ma-kho-bau-choose");
   };
   return (
     <div>

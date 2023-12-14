@@ -28,6 +28,12 @@ export const useAppStore = create((set, get) => ({
     })
   })),
 
+  listQuestionsTuLuan: [],
+  randomQuestionTuLuanSet: (data) => {
+    const randomArr = shuffleArray(data).slice(0, 15);
+    set({ listQuestionsTuLuan: randomArr });
+  },
+
   //api
   quiz: {},
   createQuizTracNghiemSet: async (data) => {
