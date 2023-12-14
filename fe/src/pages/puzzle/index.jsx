@@ -1756,7 +1756,6 @@ const PuzzleGame = () => {
   // function isMiniature() {
   //   return location.pathname.includes("/fullcpgrid/");
   // }
-  
 
   const controller = function () {
     new Puzzle({
@@ -1775,12 +1774,12 @@ const PuzzleGame = () => {
     };
   }, []);
 
-  const handlePlayAudio  = ()=>{
-    if(audio){
+  const handlePlayAudio = () => {
+    if (audio) {
       audio.pause();
     }
     audio.play();
-  }
+  };
 
   return (
     <div className="gameContainer">
@@ -1828,13 +1827,21 @@ const PuzzleGame = () => {
             >
               Audio
             </button>
+            {/* <button
+              onClick={() => {
+               
+              }}
+              className="ml-3 mt-5 bg-amber-400 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full"
+            >
+              
+            </button> */}
             <button
               onClick={() => {
-                navigate("/");
+                window.location.reload();
               }}
               className="ml-3 mt-5 bg-red-400 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full"
             >
-              Thoát
+              Tiếp Tục Chơi
             </button>
           </div>
         </div>
