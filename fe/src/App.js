@@ -12,8 +12,22 @@ import TreasureRule from "./pages/treasure/TreasureRule";
 import Treasure from "./pages/treasure";
 import Summary from "./pages/quiz/summary";
 import Login from "./pages/auth/Login";
+import { useAppStore } from "./store/appstate.ts";
+import { useEffect } from "react";
 
 function App() {
+  // TODO: get init state
+  const {quizQuestions, updateQuizQuestions} = useAppStore();
+
+  useEffect(() => {
+    
+  
+    return () => {
+      
+    }
+  }, [])
+  
+
   return (
     <BrowserRouter basename="/">
       <Routes>
