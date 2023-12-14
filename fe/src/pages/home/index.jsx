@@ -20,6 +20,9 @@ const Homepage = () => {
   const handleNavigateTreasure = () => {
     navigate("/giai-ma-kho-bau-rule");
   };
+  const handleNavigateObstacle = () => {
+    navigate("/obstacle");
+  };
   return (
     <div>
       <div
@@ -86,7 +89,10 @@ const Homepage = () => {
               KHÁM PHÁ KÌ QUAN
             </h1>
           </div>
-          <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+          <div
+            className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90"
+            onClick={handleNavigateObstacle}
+          >
             <img
               src={vuot}
               alt=""

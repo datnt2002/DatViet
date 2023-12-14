@@ -14,6 +14,7 @@ import Summary from "./pages/quiz/summary";
 import Login from "./pages/auth/Login";
 import { useAppStore } from "./store/appstate.ts";
 import { useEffect } from "react";
+import Obstacle from "./pages/obstacle/index.jsx";
 
 function App() {
   // TODO: get init state
@@ -85,6 +86,14 @@ function App() {
           element={
             <ClientGuard>
               <Treasure />
+            </ClientGuard>
+          }
+        />
+        <Route
+          path="/obstacle"
+          element={
+            <ClientGuard hasBack={true}>
+              <Obstacle />
             </ClientGuard>
           }
         />
