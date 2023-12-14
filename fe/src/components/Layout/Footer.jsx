@@ -28,40 +28,38 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4 text-center md:text-left md:mr-48">
             <div className="mb-6 md:mb-0">
               <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
-                Tài Nguyên
+                Tác Giả
               </h2>
               <ul className="text-gray-700 font-medium">
                 <li>
-                  <Link className="hover:underline">Ant Design</Link>
-                </li>
-                <li>
-                  <Link className="hover:underline">Tailwind CSS</Link>
+                  <Link className="hover:underline">Lại Thị Hồng Phúc </Link>
                 </li>
               </ul>
             </div>
             <div className="mb-6 md:mb-0">
               <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
-                Theo Dõi Chúng Tôi
+                Email
               </h2>
               <ul className="text-gray-700  font-medium">
-                <li>Github</li>
-                <li>
-                  <Link className="hover:underline">Discord</Link>
-                </li>
-              </ul>
-            </div>
-            <div className="mb-6 md:mb-0">
-              <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
-                Pháp Lý
-              </h2>
-              <ul className="text-gray-700  font-medium">
-                <li>
-                  <Link className="hover:underline">Chính Sách</Link>
-                </li>
                 <li>
                   <Link className="hover:underline">
-                    Terms &amp; Conditions
+                    hongphucthkm@gmail.com
                   </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="mb-6 md:mb-0">
+              <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
+                Vị trí
+              </h2>
+              <ul className="text-gray-700  font-medium">
+                <li>
+                  <Link className="hover:underline">
+                    Trưởng Tiểu học Khương Mai
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:underline">Thanh Xuân – Hà Nội</Link>
                 </li>
               </ul>
             </div>

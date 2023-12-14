@@ -1,7 +1,7 @@
 import React from "react";
 
 import paperScroll from "../../assets/imgs/paperscroll.png";
-import bg from "../../assets/imgs/backgr.jpg";
+import bg from "../../assets/imgs/truytimcovat.jpg";
 import { Pagination } from "antd";
 
 const Quiz = () => {
@@ -10,14 +10,15 @@ const Quiz = () => {
       <div
         style={{
           backgroundImage: `url(${bg})`,
+          backgroundSize: "100%",
         }}
-        className="bg-cover bg-bottom min-h-screen"
+        className="bg-contain  bg-bottom min-h-screen"
       >
         <div className="flex" style={{ height: "calc(100vh - 64px)" }}>
           <div className="basis-1/2 flex justify-center items-center">
             <div className=" w-full h-2/3">
               <div className="relative">
-                <img className="" src={paperScroll} />
+                <img className="" src={paperScroll} alt="" />
                 <div className="absolute top-[15%] w-full z-50 px-10">
                   <h1 className="font-dancing font-bold text-2xl text-amber-800 mb-8 tracking-wide">
                     1. Thực dân Pháp bắt đầu xâm lược nước ta vào năm nào?
