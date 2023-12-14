@@ -14,7 +14,7 @@ const HeaderClient = ({ hasBack }) => {
           <div
             className="flex flex-row cursor-pointer"
             onClick={() => {
-              navigate("/");
+              navigate(-1);
             }}
           >
             <ArrowLeftOutlined size={16} />
