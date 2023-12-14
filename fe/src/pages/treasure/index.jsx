@@ -10,8 +10,8 @@ import { Input } from "antd";
 import { useAppStore } from "../../store/appstate";
 
 const Treasure = () => {
-  const { listQuestionsTuLuan } = useAppStore();
-
+  const { listQuestionsTuLuan, updateTuLuanAnswer } = useAppStore();
+  console.log(listQuestionsTuLuan);
   const [current, setCurrent] = useState(0);
   const [question, setQuestion] = useState({});
   const [isLastStep, setIsLastStep] = useState(false);
@@ -36,13 +36,17 @@ const Treasure = () => {
   const stepItems = listQuestionsTuLuan.map((ques, index) => {
     return {
       key: index + 1,
-      title: `Q` + (index + 1),
+      // title: `Q` + (index + 1),
       status: "wait",
     };
   });
 
   const handleSubmit = () => {
-    navigate("/truy-tim-bao-vat-summary");
+    navigate("/giai-ma-kho-bau-summary");
+  };
+
+  const handleGetValue = (e) => {
+    updateTuLuanAnswer(question?.id, e.target.value);
   };
 
   return (
@@ -65,7 +69,7 @@ const Treasure = () => {
           backgroundImage: `url(${paper})`,
           backgroundSize: "100%",
         }}
-        className="bg-contain bg-no-repeat w-2/3 h-auto rounded-2xl p-6 mx-auto"
+        className="bg-contain bg-no-repeat w-2/3 h-auto rounded-2xl p-6 mx-auto min-h-[20rem]"
       >
         <h1 className="text-2xl font-dancing pt-12 pl-4 pb-3 mt-10 mx-4">
           Câu số {current + 1}: {question?.question}
@@ -75,7 +79,12 @@ const Treasure = () => {
         </pre>
       </div>
       <div className=" w-2/3 h-auto pb-8  pl-10 pt-6 rounded-2xl mx-auto">
-        <Input placeholder="Điền Đáp Án" size="large" />
+        <Input
+          placeholder="Điền Đáp Án"
+          size="large"
+          onChange={handleGetValue}
+          value={listQuestionsTuLuan[current]?.currentAnswer}
+        />
       </div>
       {isLastStep && (
         <h1

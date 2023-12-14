@@ -56,7 +56,7 @@ const SummaryTuLuan = () => {
         <img src={paperScroll} alt="" className=" absolute w-full h-full" />
         <div className="flex flex-col absolute z-50 w-full h-full ">
           <h1 className="text-center font-dancing font-bold text-6xl text-amber-800 mt-28 mb-10 tracking-wide">
-            TRUY TÌM CỔ VẬT
+            GIẢI MÃ KHO BÁU
           </h1>
           <h3 className="text-center font-dancing text-3xl mb-4">
             Số câu trả lời đúng: 15/16

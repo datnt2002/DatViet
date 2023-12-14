@@ -15,24 +15,38 @@ export const useAppStore = create((set, get) => ({
     const randomArr = shuffleArray(data).slice(0, 15);
     set({ listQuestions: randomArr });
   },
-  updateQuestionTracNghiemAnswer: (questionId, curAnswerVal) => set((state) => ({
-    ...state,
-    listQuestions: state.listQuestions.map((question) =>{
-      if(questionId === question?.id){
-        return {
-          ...question,
-          selectedAnswerIndex: curAnswerVal
+  updateQuestionTracNghiemAnswer: (questionId, curAnswerVal) =>
+    set((state) => ({
+      ...state,
+      listQuestions: state.listQuestions.map((question) => {
+        if (questionId === question?.id) {
+          return {
+            ...question,
+            selectedAnswerIndex: curAnswerVal,
+          };
         }
-      }
-      return question;
-    })
-  })),
+        return question;
+      }),
+    })),
 
   listQuestionsTuLuan: [],
   randomQuestionTuLuanSet: (data) => {
     const randomArr = shuffleArray(data).slice(0, 15);
     set({ listQuestionsTuLuan: randomArr });
   },
+  updateTuLuanAnswer: (questionId, curAnswerVal) =>
+    set((state) => ({
+      ...state,
+      listQuestionsTuLuan: state.listQuestionsTuLuan.map((question) => {
+        if (questionId === question?.id) {
+          return {
+            ...question,
+            currentAnswer: curAnswerVal,
+          };
+        }
+        return question;
+      }),
+    })),
 
   //api
   quiz: {},

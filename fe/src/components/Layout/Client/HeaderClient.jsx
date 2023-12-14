@@ -21,12 +21,21 @@ const HeaderClient = ({ hasBack }) => {
             <p className="ml-2"> Trở về</p>
           </div>
         )}
-        <div className="flex items-center mx-auto">
+        <div className="flex items-center justify-between mx-auto">
           <Link to="/" className="text-[#F5F5F5] text-xl">
             <h1 className="text-amber-800 font-dancing font-bold text-3xl">
               Chủ Nhân Đất Việt
             </h1>
           </Link>
+
+          <h1
+            onClick={() => {
+              navigate("/login");
+            }}
+            className="cursor-pointer absolute right-3 border border-amber-700 leading-none p-2 rounded-2xl font-dancing font-bold text-xl"
+          >
+            Login
+          </h1>
         </div>
       </Header>
       <Divider className="bg-black my-0" />
