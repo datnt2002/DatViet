@@ -1751,10 +1751,12 @@ const PuzzleGame = () => {
   const navigate = useNavigate();
   let random = Math.floor(Math.random() * 9);
   let imgData = imglistArr[random];
+  const audio = new Audio(imgData?.audio);
   // const location = useLocation();
   // function isMiniature() {
   //   return location.pathname.includes("/fullcpgrid/");
   // }
+  
 
   const controller = function () {
     new Puzzle({
@@ -1768,8 +1770,17 @@ const PuzzleGame = () => {
   useEffect(() => {
     // autoStart = isMiniature(); // used for nice miniature in CodePen
     controller();
-    return () => {};
+    return () => {
+      audio.pause();
+    };
   }, []);
+
+  const handlePlayAudio  = ()=>{
+    if(audio){
+      audio.pause();
+    }
+    audio.play();
+  }
 
   return (
     <div className="gameContainer">
@@ -1812,7 +1823,7 @@ const PuzzleGame = () => {
         <div className="gameSummary-content">
           <div className="flex flex-row">
             <button
-              onClick={() => {}}
+              onClick={handlePlayAudio}
               className="ml-3 mt-5 bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
             >
               Audio
