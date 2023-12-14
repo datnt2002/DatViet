@@ -8,8 +8,8 @@ import adminAvatar from "../../../assets/imgs/adminAvatar.jpg";
 const AvatarAdmin = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    sessionStorage.removeItem("token");
     navigate("/login");
+    sessionStorage.removeItem("token");
   };
 
   const items = [

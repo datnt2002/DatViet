@@ -18,6 +18,7 @@ import Obstacle from "./pages/obstacle/index.jsx";
 import SummaryTuLuan from "./pages/treasure/SummaryTuLuan.jsx";
 import CreateTuLuan from "./pages/admin/dienDapAn/CreateTuLuan.jsx";
 import QuanLiTuLuan from "./pages/admin/dienDapAn/index.jsx";
+import ChooseQuiz from "./pages/quiz/ChooseQuiz.jsx";
 
 function App() {
   // TODO: get init state
@@ -60,6 +61,14 @@ function App() {
           element={
             <ClientGuard>
               <QuizRule />
+            </ClientGuard>
+          }
+        />
+         <Route
+          path="/truy-tim-bao-vat-choose"
+          element={
+            <ClientGuard>
+              <ChooseQuiz />
             </ClientGuard>
           }
         />

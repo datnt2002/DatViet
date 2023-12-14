@@ -66,7 +66,9 @@ const updateQuestion = async (value) => {
   const results = [];
 
   for (const question of value) {
-    const result = await Question.findOne({ where: { questionId: question.questionId } });
+    const result = await Question.findOne({
+      where: { questionId: question.questionId },
+    });
 
     if (!result) {
       results.push(QUESTION_CONSTANTS.NOT_FOUND);
@@ -79,7 +81,9 @@ const updateQuestion = async (value) => {
     }
     for (const answer of question.answer) {
       console.log("this is answer", answer);
-      const result = await Answer.findOne({ where: { answerId: answer.answerId } });
+      const result = await Answer.findOne({
+        where: { answerId: answer.answerId },
+      });
       if (!result) {
         results.push(QUESTION_CONSTANTS.NOT_FOUND);
         continue; // Skip to the next iteration

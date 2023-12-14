@@ -3,6 +3,7 @@ export const imgList = [
     id: 1,
     name: "Cột cờ lũng cú",
     src: require("../../assets/imgs/game/cot_co_lung_cu.png"),
+    audio: "",
   },
   {
     id: 2,

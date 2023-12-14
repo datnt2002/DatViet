@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const QuizRule = () => {
   const navigate = useNavigate();
   const handleStartTruyTim = () => {
-    navigate("/truy-tim-bao-vat");
+    navigate("/truy-tim-bao-vat-choose");
   };
   return (
     <div>
