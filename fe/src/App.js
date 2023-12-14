@@ -15,19 +15,15 @@ import Login from "./pages/auth/Login";
 import { useAppStore } from "./store/appstate.ts";
 import { useEffect } from "react";
 import Obstacle from "./pages/obstacle/index.jsx";
+import SummaryTuLuan from "./pages/treasure/SummaryTuLuan.jsx";
 
 function App() {
   // TODO: get init state
-  const {quizQuestions, updateQuizQuestions} = useAppStore();
+  const { quizQuestions, updateQuizQuestions } = useAppStore();
 
   useEffect(() => {
-    
-  
-    return () => {
-      
-    }
-  }, [])
-  
+    return () => {};
+  }, []);
 
   return (
     <BrowserRouter basename="/">
@@ -86,6 +82,14 @@ function App() {
           element={
             <ClientGuard>
               <Treasure />
+            </ClientGuard>
+          }
+        />
+        <Route
+          path="/giai-ma-kho-bau-summary"
+          element={
+            <ClientGuard>
+              <SummaryTuLuan />
             </ClientGuard>
           }
         />

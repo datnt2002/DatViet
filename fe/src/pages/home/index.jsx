@@ -5,7 +5,7 @@ import quizGame from "../../assets/imgs/truytim.png";
 import paperScroll from "../../assets/imgs/paperscroll.png";
 import bg from "../../assets/imgs/backgr.jpg";
 import puzzle from "../../assets/imgs/puzzle.jpg";
-import map from "../../assets/imgs/map.jpg";
+import map from "../../assets/imgs/giaimakhobaubg.png";
 import vuot from "../../assets/imgs/vuotchuong.jpg";
 import trongdong from "../../assets/imgs/trongdong1.png";
 
