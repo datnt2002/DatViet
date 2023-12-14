@@ -3,10 +3,17 @@ import React from "react";
 import { Content } from "antd/es/layout/layout";
 import { Button, Form, Input, Layout } from "antd";
 import EditTracNghiem from "../../../components/Container/FormContainer/EditTracNghiem";
+import { useLocation } from "react-router-dom";
 
 const EditQuestion = () => {
+  const [form] = Form.useForm();
+  const location = useLocation();
+  const { pathname } = location;
+  const pathNameArray = pathname.split("/").filter((item) => {
+    return item;
+  });
+  console.log(pathNameArray);
   const handleSubmitQuiz = () => {};
-
   const formLayout = {
     labelCol: {
       span: 4,
@@ -36,7 +43,7 @@ const EditQuestion = () => {
                 name="create-quiz"
                 onFinish={handleSubmitQuiz}
                 labelWrap
-                form
+                form={form}
                 {...formLayout}
               >
                 <Form.Item
