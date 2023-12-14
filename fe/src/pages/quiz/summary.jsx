@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import bg from "../../assets/imgs/backgr.jpg";
 
-import { Progress, Table } from "antd";
+import { Modal, Progress, Table } from "antd";
 import { useAppStore } from "../../store/appstate";
-import {
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  VideoCameraOutlined,
-  BookOutlined,
-} from "@ant-design/icons";
+import { VideoCameraOutlined, BookOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const Summary = () => {
   const { listQuestions } = useAppStore();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [document, setDocument] = useState();
+  const showModal = (text) => {
+    setDocument(text);
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   let countCorrectAnswers = 0;
   const data = listQuestions.map((ques, index) => {
     if (ques?.selectedAnswerIndex == ques?.correctAnswerIndex) {
@@ -38,6 +48,7 @@ const Summary = () => {
       title: "Kết quả",
       dataIndex: "result",
       key: "result",
+      width: 100,
       render: (val) => (val ? "Đúng" : "Sai"),
     },
     {
@@ -59,18 +70,22 @@ const Summary = () => {
       title: "Tư Liệu",
       dataIndex: "videoLink",
       key: "videoLink",
+      width: 100,
       render: (text) =>
-        text ? (
+        text?.type === "video" ? (
           <VideoCameraOutlined
             className="text-3xl cursor-pointer"
-            onClick={() => handleNavigate(text)}
+            onClick={() => handleNavigate(text?.link)}
           />
         ) : (
-          <BookOutlined className="text-3xl cursor-pointer" />
+          <BookOutlined
+            className="text-3xl cursor-pointer"
+            onClick={() => showModal(text?.link)}
+          />
         ),
     },
   ];
-
+  const navigate = useNavigate();
   const handleNavigate = (text) => {
     window.open(text, "_blank");
   };
@@ -103,6 +118,27 @@ const Summary = () => {
               }}
             />
           </div>
+          <h1
+            onClick={() => {
+              navigate("/");
+            }}
+            className="text-white cursor-pointer bg-amber-800 w-fit p-2 rounded-2xl border mb-5 mx-auto"
+          >
+            Về Trang Chủ
+          </h1>
+          {isModalOpen && (
+            <Modal
+              title="Tài Liệu"
+              open={isModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+              footer={null}
+            >
+              <div className="mx-auto">
+                <img src={document} alt="" />
+              </div>
+            </Modal>
+          )}
         </div>
       </div>
     </div>

@@ -36,12 +36,13 @@ const ChooseQuiz = () => {
           listQuiz.map((quiz, index) => {
             return (
               <div
-                className=" bg-white/80 rounded-3xl w-1/2 mx-auto text-center cursor-pointer my-6 p-6"
+                className=" bg-white/80 rounded-3xl w-1/3 mx-auto text-center cursor-pointer my-6 p-6"
                 key={index}
                 onClick={() => handleChooseQuiz(quiz?.quizId)}
               >
-                <h1 className="font-dancing text-2xl">{quiz?.title}</h1>
-                <p className="font-dancing text-xl">{quiz?.description}</p>
+                <h1 className="font-dancing font-bold text-3xl">
+                  {quiz?.title}
+                </h1>
               </div>
             );
           })}

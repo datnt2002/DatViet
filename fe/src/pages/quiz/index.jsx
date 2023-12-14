@@ -8,7 +8,7 @@ import { useAppStore } from "../../store/appstate";
 
 const Quiz = () => {
   const { listQuestions, updateQuestionTracNghiemAnswer } = useAppStore();
-  
+
   const [current, setCurrent] = useState(0);
   const [question, setQuestion] = useState({});
   const [isLastStep, setIsLastStep] = useState(false);
@@ -17,7 +17,6 @@ const Quiz = () => {
 
   useEffect(() => {
     setQuestion(listQuestions[current]);
-    // Kiểm tra xem có phải là bước cuối cùng không
     setIsLastStep(current === listQuestions.length - 1);
   }, [current]);
 
@@ -42,9 +41,9 @@ const Quiz = () => {
     navigate("/truy-tim-bao-vat-summary");
   };
 
-  const handleSelectAnswer = (e)=>{
+  const handleSelectAnswer = (e) => {
     updateQuestionTracNghiemAnswer(question?.id, e.target.value);
-  }
+  };
 
   return (
     <div
@@ -54,7 +53,7 @@ const Quiz = () => {
       }}
       className="bg-contain bg-bottom min-h-screen"
     >
-      <div className="bg-white/80 mt-4 p-2 rounded-2xl mx-auto w-[95%] ">
+      <div className="bg-white mt-4 p-2 rounded-2xl mx-auto w-[95%] ">
         <Steps
           current={current}
           onChange={onChange}
@@ -63,8 +62,8 @@ const Quiz = () => {
         />
       </div>
 
-      <div className="bg-amber-400 border border-amber-800 w-2/3 rounded-2xl p-6 mx-auto my-6">
-        <h1 className="text-2xl font-dancing">
+      <div className="bg-amber-400 border border-amber-800 w-2/3 rounded-2xl p-6 ml-96 my-6">
+        <h1 className="text-3xl font-dancing">
           Câu số {current + 1}: {question?.question}
         </h1>
         {question?.imgs?.length > 0 && (
@@ -72,19 +71,40 @@ const Quiz = () => {
         )}
       </div>
 
-      <div className=" mx-auto mb-10 w-2/3 h-auto pb-8 bg-white/90 pl-10 pt-6 rounded-2xl border border-amber-800">
-        <Radio.Group onChange={handleSelectAnswer} value={listQuestions[current]?.selectedAnswerIndex}>
-          <Space direction="vertical" size={"large"}>
-            <Radio value={question?.option1?.index} className="text-lg">
+      <div className="ml-96 mb-10 w-2/3 h-auto pb-8 bg-amber-300 px-10 pt-6 rounded-2xl border border-amber-800">
+        <Radio.Group
+          onChange={handleSelectAnswer}
+          value={listQuestions[current]?.selectedAnswerIndex}
+          className="w-full"
+          size="large"
+        >
+          <Space
+            direction="vertical"
+            size={"large"}
+            className="w-fit block mx-auto"
+          >
+            <Radio
+              value={question?.option1?.index}
+              className="text-2xl font-dancing my-2 "
+            >
               {question?.option1?.content}
             </Radio>
-            <Radio value={question?.option2?.index} className="text-lg">
+            <Radio
+              value={question?.option2?.index}
+              className="text-2xl font-dancing my-2"
+            >
               {question?.option2?.content}
             </Radio>
-            <Radio value={question?.option3?.index} className="text-lg">
+            <Radio
+              value={question?.option3?.index}
+              className="text-2xl font-dancing my-2"
+            >
               {question?.option3?.content}
             </Radio>
-            <Radio value={question?.option4?.index} className="text-lg">
+            <Radio
+              value={question?.option4?.index}
+              className="text-2xl font-dancing my-2"
+            >
               {question?.option4?.content}
             </Radio>
           </Space>

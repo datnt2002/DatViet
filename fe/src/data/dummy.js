@@ -1,11 +1,12 @@
-import { shuffleArray } from "../pages/quiz/helper";
-
 export const questionList = [
   {
     id: "q1",
     index: 1,
     question: "Thực dân Pháp bắt đầu xâm lược nước ta vào năm nào?",
-    videoLink: "https://www.youtube.com/watch?v=910hNLAG2Qk&t=417s",
+    videoLink: {
+      type: "video",
+      link: "https://www.youtube.com/watch?v=910hNLAG2Qk&t=417s",
+    },
     option1: {
       index: 1,
       content: "Năm 1858",
@@ -30,7 +31,10 @@ export const questionList = [
     id: "q2",
     index: 2,
     question: "Ai là người được nhân dân tôn làm “Bình Tây Đại Nguyên soái”?",
-    videoLink: "https://www.youtube.com/watch?v=6z3hFlTTCbI",
+    videoLink: {
+      type: "video",
+      link: "https://www.youtube.com/watch?v=6z3hFlTTCbI",
+    },
     option1: {
       index: 1,
       content: "Nguyễn Trung Trực",
@@ -48,14 +52,17 @@ export const questionList = [
       content: "Nguyễn Trường Tộ",
     },
     correctAnswerIndex: 2,
-    imgs: [require("../assets/imgs/tracNghiem/cau2.png")],
+    imgs: [],
     selectedAnswerIndex: 0, //update when user choose answer
   },
   {
     id: "q3",
     index: 3,
     question: "Nguyễn Tất Thành sinh vào ngày, tháng, năm nào?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau3.png"),
+    },
     option1: {
       index: 1,
       content: "19/5/1980",
@@ -80,7 +87,10 @@ export const questionList = [
     id: "q4",
     index: 4,
     question: "Nguyễn Tất Thành ra đi tìm đường cứu nước vào năm nào, từ đâu?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau4.jpg"),
+    },
     option1: {
       index: 1,
       content: "Năm 1911, tại cảng Nhà Rồng",
@@ -107,7 +117,10 @@ export const questionList = [
     id: "q5",
     index: 5,
     question: "Nhà nước đầu tiên của nước ta có tên là gì?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau5.png"),
+    },
     option1: {
       index: 1,
       content: "Văn Lang",
@@ -133,7 +146,10 @@ export const questionList = [
     index: 6,
     question:
       "Chiến dịch nào kết thúc cuộc kháng chiến chống Pháp của nhân dân ta là chiến dịch?",
-    videoLink: "https://www.youtube.com/watch?v=aWn6BWw9FMY",
+    videoLink: {
+      type: "video",
+      link: "https://www.youtube.com/watch?v=aWn6BWw9FMY",
+    },
     option1: {
       index: 1,
       content: "Chiến dịch Điện Biên Phủ",
@@ -161,7 +177,10 @@ export const questionList = [
     index: 7,
     question:
       "Qua câu thơ trên, bạn hãy cho biết thời gian bắt đầu và kết thúc của cuộc kháng chiến chống Pháp vào năm nào?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau7.png"),
+    },
     option1: {
       index: 1,
       content:
@@ -183,7 +202,7 @@ export const questionList = [
         "Cuộc kháng chiến chống Pháp bắt đầu từ năm 1940 và kết thúc vào năm 1949.",
     },
     correctAnswerIndex: 3,
-    imgs: [require("../assets/imgs/tracNghiem/cau7.jpg")],
+    imgs: [require("../assets/imgs/tracNghiem/cau7.png")],
     selectedAnswerIndex: 0, //update when user choose answer
   },
   {
@@ -191,7 +210,10 @@ export const questionList = [
     index: 8,
     question:
       "Trong chiến dịch Biên giới Thu Đông 1950, anh hùng nào đã đánh bộc phá ở trận Đông Khê?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau8.png"),
+    },
     option1: {
       index: 1,
       content: "Anh hùng Cù Chính Lan",
@@ -217,7 +239,10 @@ export const questionList = [
     index: 9,
     question:
       "Sau khi lên ngôi vua, An Dương Vương đã chọn nơi nào để đóng đô?",
-    videoLink: "https://www.youtube.com/watch?v=rObGROHIGYw",
+    videoLink: {
+      type: "video",
+      link: "https://www.youtube.com/watch?v=rObGROHIGYw",
+    },
     option1: {
       index: 1,
       content: "Phong Châu",
@@ -244,7 +269,10 @@ export const questionList = [
     id: "q10",
     index: 10,
     question: "Ai là người lãnh đạo nhân dân ta chống lại quân Nam Hán?",
-    videoLink: "https://www.youtube.com/watch?v=oPknMTsA69M",
+    videoLink: {
+      type: "video",
+      link: "https://www.youtube.com/watch?v=oPknMTsA69M",
+    },
     option1: {
       index: 1,
       content: "Ngô Quyền",
@@ -261,7 +289,7 @@ export const questionList = [
       index: 4,
       content: "Lê Hoàn",
     },
-    correctAnswerIndex: 2,
+    correctAnswerIndex: 1,
     imgs: [
       // '../assets/imgs/adminAvatar.jpg'
     ],
@@ -272,7 +300,10 @@ export const questionList = [
     index: 11,
     question:
       "Thời nhà Trần, nhân dân ta đã đấu tranh chống lại quân xâm lược Mông – Nguyên mấy lần?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau11.png"),
+    },
     option1: {
       index: 1,
       content: "1 lần",
@@ -299,7 +330,10 @@ export const questionList = [
     id: "q12",
     index: 12,
     question: "Đinh Bộ Lĩnh đã có công lao gì quan trọng đối với đất nước?",
-    videoLink: "https://youtu.be/FGERWPTDdGM?feature=shared",
+    videoLink: {
+      type: "video",
+      link: "https://youtu.be/FGERWPTDdGM?feature=shared",
+    },
     option1: {
       index: 1,
       content: "Lập nên nhà nước Âu Lạc",
@@ -317,7 +351,7 @@ export const questionList = [
       content: "Chỉ huy cuộc kháng chiến chống quân Tống",
     },
     correctAnswerIndex: 3,
-    imgs: [require("../assets/imgs/tracNghiem/cau12.png")],
+    imgs: [],
     selectedAnswerIndex: 0, //update when user choose answer
   },
   {
@@ -325,7 +359,10 @@ export const questionList = [
     index: 13,
     question:
       "Sau khi lên ngôi vua, Đinh Tiên Hoàng đã chọn nơi nào để đóng đô?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau13.jpg"),
+    },
     option1: {
       index: 1,
       content: "Phong Châu",
@@ -350,7 +387,10 @@ export const questionList = [
     id: "q14",
     index: 14,
     question: "Đinh Bộ Lĩnh đã thống nhất giang sơn vào năm nào?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/tracNghiem/cau14.jpg"),
+    },
     option1: {
       index: 1,
       content: "Năm 968",
@@ -368,14 +408,17 @@ export const questionList = [
       content: "Năm 938",
     },
     correctAnswerIndex: 1,
-    imgs: [require("../assets/imgs/tracNghiem/cau14.jpg")],
+    imgs: [],
     selectedAnswerIndex: 0, //update when user choose answer
   },
   {
     id: "q15",
     index: 15,
     question: "Triều đại nhà Lý bắt đầu từ năm nào?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau15.png"),
+    },
     option1: {
       index: 1,
       content: "Năm 1005",
@@ -403,7 +446,10 @@ export const questionList = [
     index: 16,
     question:
       "Chiến thắng nào ghi dấu son chói lọi, chấm dứt thời kì hơn 1000 năm Bắc thuộc của nhân dân ta?",
-    videoLink: "https://www.youtube.com/watch?v=vvy-sCpjV10",
+    videoLink: {
+      type: "video",
+      link: "https://www.youtube.com/watch?v=vvy-sCpjV10",
+    },
     option1: {
       index: 1,
       content: "Chiến thắng của Hai Bà Trưng",
@@ -430,7 +476,10 @@ export const questionList = [
     id: "q17",
     index: 17,
     question: "Kinh thành Huế được xây dựng từ triều đại nào?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau17.png"),
+    },
     option1: {
       index: 1,
       content: "Triều Lý",
@@ -455,7 +504,10 @@ export const questionList = [
     id: "q18",
     index: 18,
     question: "Phố cổ Hội An thuộc địa phận tỉnh nào?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cauu18.png"),
+    },
     option1: {
       index: 1,
       content: "Thái Bình",
@@ -483,7 +535,10 @@ export const questionList = [
     index: 19,
     question:
       "Trong cuộc kháng chiến chống Mỹ cứu nước, nữ anh hùng nào là lãnh đạo chủ chốt của phong trào Đồng Khởi?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau19.png"),
+    },
     option1: {
       index: 1,
       content: "Bà Trương Mĩ Hoa",
@@ -510,7 +565,10 @@ export const questionList = [
     id: "q20",
     index: 20,
     question: "Thành phố Hồ Chí Minh có tên gọi như hiện nay từ năm nào?",
-    videoLink: "",
+    videoLink: {
+      type: "document",
+      link: require("../assets/imgs/document/cau20.png"),
+    },
     option1: {
       index: 1,
       content: "Năm 1900",
