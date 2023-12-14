@@ -6,8 +6,23 @@ import {
   getListTracNghiem,
   getListTuLuan,
 } from "../services/tracNghiem.service";
+import { shuffleArray } from "../pages/quiz/helper";
 
 export const useAppStore = create((set, get) => ({
+  //fe
+  listQuestions: [],
+  randomQuestionTracNghiemSet: (data) => {
+    const randomArr = shuffleArray(data).slice(0, 15);
+    set({ listQuestions: randomArr });
+  },
+
+  listQuestionsTuLuan: [],
+  randomQuestionTuLuanSet: (data) => {
+    const randomArr = shuffleArray(data).slice(0, 15);
+    set({ listQuestionsTuLuan: randomArr });
+  },
+
+  //api
   quiz: {},
   createQuizTracNghiemSet: async (data) => {
     console.log(data);

@@ -1,18 +1,18 @@
 import React from "react";
-import bg from "../../assets/imgs/truytimcovat.jpg";
+import bg from "../../assets/imgs/giaimakhobaubg.png";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../../store/appstate";
-import { questionList } from "../../data/dummy";
+import { questionGame2 } from "../../data/dummy";
 
-const ChooseQuiz = () => {
-  const { randomQuestionTracNghiemSet } = useAppStore();
+const ChooseBoDe = () => {
+  const { randomQuestionTuLuanSet } = useAppStore();
   const navigate = useNavigate();
   const listQuiz = [
-    { quizId: 1, title: "Bộ Đề 1", description: "Lịch sử" },
-    { quizId: 2, title: "Bộ Đề 2", description: "Lịch sử" },
-    { quizId: 3, title: "Bộ Đề 3", description: "Lịch sử" },
-    { quizId: 4, title: "Bộ Đề 4", description: "Lịch sử" },
-    { quizId: 5, title: "Bộ Đề 5", description: "Lịch sử" },
+    { quizId: 1, title: "Bộ Đề 1" },
+    { quizId: 2, title: "Bộ Đề 2" },
+    { quizId: 3, title: "Bộ Đề 3" },
+    { quizId: 4, title: "Bộ Đề 4" },
+    { quizId: 5, title: "Bộ Đề 5" },
   ];
 
   // useEffect(() => {
@@ -20,8 +20,8 @@ const ChooseQuiz = () => {
   // }, []);
 
   const handleChooseQuiz = (quizId) => {
-    randomQuestionTracNghiemSet(questionList);
-    navigate(`/truy-tim-bao-vat`);
+    randomQuestionTuLuanSet(questionGame2);
+    navigate(`/giai-ma-kho-bau`);
   };
   return (
     <div
@@ -41,7 +41,6 @@ const ChooseQuiz = () => {
                 onClick={() => handleChooseQuiz(quiz?.quizId)}
               >
                 <h1 className="font-dancing text-2xl">{quiz?.title}</h1>
-                <p className="font-dancing text-xl">{quiz?.description}</p>
               </div>
             );
           })}
@@ -50,4 +49,4 @@ const ChooseQuiz = () => {
   );
 };
 
-export default ChooseQuiz;
+export default ChooseBoDe;
