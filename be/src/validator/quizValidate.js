@@ -7,7 +7,7 @@ const createQuizSchema = Joi.object({
     "string.max": "title must have maximum 50 characters",
     "string.pattern.base": "title must not have special characters",
   }),
-  content: Joi.string().min(10).max(500).required().messages({
+  description: Joi.string().min(10).max(500).required().messages({
     "string.empty": "content must not be empty",
     "any.required": "content is required",
     "string.min": "content must be at least 10 characters long",
