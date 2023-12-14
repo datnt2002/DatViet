@@ -89,7 +89,7 @@ const Quiz = () => {
       {isLastStep && (
         <h1
           onClick={handleSubmit}
-          className="hover:shadow-2xl cursor-pointer absolute z-50 bottom-2 right-8 border-4 border-amber-800 bg-amber-700 text-white p-2 rounded-full"
+          className="hover:shadow-2xl cursor-pointer w-20 text-centers mx-auto border-4 border-amber-800 bg-amber-700 text-white p-2 mb-4 rounded-full"
         >
           Nộp Bài
         </h1>
