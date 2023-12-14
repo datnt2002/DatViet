@@ -19,6 +19,7 @@ import SummaryTuLuan from "./pages/treasure/SummaryTuLuan.jsx";
 import CreateTuLuan from "./pages/admin/dienDapAn/CreateTuLuan.jsx";
 import QuanLiTuLuan from "./pages/admin/dienDapAn/index.jsx";
 import ChooseQuiz from "./pages/quiz/ChooseQuiz.jsx";
+import EditQuestion from "./pages/admin/tracNghiem/EditQuestion.jsx";
 
 function App() {
   // TODO: get init state
@@ -64,7 +65,7 @@ function App() {
             </ClientGuard>
           }
         />
-         <Route
+        <Route
           path="/truy-tim-bao-vat-choose"
           element={
             <ClientGuard>
@@ -126,6 +127,14 @@ function App() {
           element={
             <AdminGuard>
               <CreateQuestion />
+            </AdminGuard>
+          }
+        />
+        <Route
+          path="/admin/edit-trac-nghiem/:id"
+          element={
+            <AdminGuard>
+              <EditQuestion />
             </AdminGuard>
           }
         />
