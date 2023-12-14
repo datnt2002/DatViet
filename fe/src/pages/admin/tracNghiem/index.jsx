@@ -9,8 +9,6 @@ import { xoaBoDeTracNghiem } from "../../../services/tracNghiem.service";
 const QuanLiBoDe = () => {
   const { listQuiz, getListTracNghiemSet } = useAppStore();
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     getListTracNghiemSet();
   }, []);
@@ -37,8 +35,8 @@ const QuanLiBoDe = () => {
     },
     {
       title: "Nội dung",
-      dataIndex: "content",
-      key: "content",
+      dataIndex: "description",
+      key: "description",
     },
     {
       title: "Action",
@@ -48,7 +46,7 @@ const QuanLiBoDe = () => {
           <Link>
             <EyeOutlined />
           </Link>
-          <Link onClick={() => handleNavigateEdit(record)}>
+          <Link to={`/admin/edit-trac-nghiem/${record?.quizId}`}>
             <EditOutlined />
           </Link>
           <>
@@ -78,14 +76,10 @@ const QuanLiBoDe = () => {
     return {
       key: index + 1,
       title: quiz?.title,
-      content: quiz?.content,
+      description: quiz?.description,
       quizId: quiz?.quizId,
     };
   });
-
-  const handleNavigateEdit = (record) => {
-    navigate(`edit-bo-de/${record?.quizId}`);
-  };
 
   return (
     <>
