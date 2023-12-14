@@ -1,8 +1,9 @@
 import React from "react";
 import bg from "../../assets/imgs/backgr.jpg";
 import paperScroll from "../../assets/imgs/paperscroll.png";
-import { Col, Divider, Row } from "antd";
 import { CloseCircleOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+
 const Summary = () => {
   return (
     <div
