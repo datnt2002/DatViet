@@ -1,9 +1,11 @@
 import React from "react";
 import bg from "../../assets/imgs/truytimcovat.jpg";
 import { useNavigate } from "react-router-dom";
+import { useAppStore } from "../../store/appstate";
+import { questionList } from "../../data/dummy";
 
 const ChooseQuiz = () => {
-  // const { listQuiz, getListTracNghiemSet } = useAppStore();
+  const { randomQuestionTracNghiemSet } = useAppStore();
   const navigate = useNavigate();
   const listQuiz = [
     { quizId: 1, title: "Bộ Đề 1", description: "Lịch sử" },
@@ -18,6 +20,7 @@ const ChooseQuiz = () => {
   // }, []);
 
   const handleChooseQuiz = (quizId) => {
+    randomQuestionTracNghiemSet(questionList);
     navigate(`/truy-tim-bao-vat`);
   };
   return (
