@@ -15,6 +15,18 @@ export const useAppStore = create((set, get) => ({
     const randomArr = shuffleArray(data).slice(0, 15);
     set({ listQuestions: randomArr });
   },
+  updateQuestionTracNghiemAnswer: (questionId, curAnswerVal) => set((state) => ({
+    ...state,
+    listQuestions: state.listQuestions.map((question) =>{
+      if(questionId === question?.id){
+        return {
+          ...question,
+          selectedAnswerIndex: curAnswerVal
+        }
+      }
+      return question;
+    })
+  })),
 
   //api
   quiz: {},

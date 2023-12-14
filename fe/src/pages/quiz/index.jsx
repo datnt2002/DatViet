@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../../store/appstate";
 
 const Quiz = () => {
-  const { listQuestions } = useAppStore();
-  console.log(listQuestions);
+  const { listQuestions, updateQuestionTracNghiemAnswer } = useAppStore();
+  
   const [current, setCurrent] = useState(0);
   const [question, setQuestion] = useState({});
   const [isLastStep, setIsLastStep] = useState(false);
@@ -33,7 +33,7 @@ const Quiz = () => {
   const stepItems = listQuestions.map((ques, index) => {
     return {
       key: index + 1,
-      title: `Q` + (index + 1),
+      // title: `Q` + (index + 1),
       status: "wait",
     };
   });
@@ -41,6 +41,10 @@ const Quiz = () => {
   const handleSubmit = () => {
     navigate("/truy-tim-bao-vat-summary");
   };
+
+  const handleSelectAnswer = (e)=>{
+    updateQuestionTracNghiemAnswer(question?.id, e.target.value);
+  }
 
   return (
     <div
@@ -69,18 +73,18 @@ const Quiz = () => {
       </div>
 
       <div className=" mx-auto mb-10 w-2/3 h-auto pb-8 bg-white/90 pl-10 pt-6 rounded-2xl border border-amber-800">
-        <Radio.Group>
+        <Radio.Group onChange={handleSelectAnswer} value={listQuestions[current]?.selectedAnswerIndex}>
           <Space direction="vertical" size={"large"}>
-            <Radio value={1} className="text-lg">
+            <Radio value={question?.option1?.index} className="text-lg">
               {question?.option1?.content}
             </Radio>
-            <Radio value={2} className="text-lg">
+            <Radio value={question?.option2?.index} className="text-lg">
               {question?.option2?.content}
             </Radio>
-            <Radio value={3} className="text-lg">
+            <Radio value={question?.option3?.index} className="text-lg">
               {question?.option3?.content}
             </Radio>
-            <Radio value={4} className="text-lg">
+            <Radio value={question?.option4?.index} className="text-lg">
               {question?.option4?.content}
             </Radio>
           </Space>
