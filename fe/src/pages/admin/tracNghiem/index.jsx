@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
-import { Layout, Popconfirm, Space, Table, Tag } from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Layout, Modal, Popconfirm, Space, Table, Tag } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { EyeOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppStore } from "../../../store/appstate";
 import { xoaBoDeTracNghiem } from "../../../services/tracNghiem.service";
 
 const QuanLiBoDe = () => {
   const { listQuiz, getListTracNghiemSet } = useAppStore();
-  console.log(listQuiz);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     getListTracNghiemSet();
   }, []);
+
   const handleDelete = async (record) => {
     try {
       await xoaBoDeTracNghiem(record?.quizId);
@@ -45,7 +48,7 @@ const QuanLiBoDe = () => {
           <Link>
             <EyeOutlined />
           </Link>
-          <Link>
+          <Link onClick={() => handleNavigateEdit(record)}>
             <EditOutlined />
           </Link>
           <>
@@ -79,6 +82,10 @@ const QuanLiBoDe = () => {
       quizId: quiz?.quizId,
     };
   });
+
+  const handleNavigateEdit = (record) => {
+    navigate(`edit-bo-de/${record?.quizId}`);
+  };
 
   return (
     <>
