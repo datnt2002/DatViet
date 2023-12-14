@@ -1,14 +1,14 @@
 import {
-  createQuestionController,
-  createConstructedQuestionController,
+  CreateQuestionController,
+  CreateConstructedQuestionController,
   updateQuestionController,
   updateConstructedQuestionController,
 } from "../controller/questionController.js";
 const express = require("express");
 const questionRouter = express.Router();
 
-questionRouter.post("/", createQuestionController);
-questionRouter.post("/constructed", createConstructedQuestionController);
-questionRouter.patch("/", updateQuestionController);
+questionRouter.post("/constructed", CreateConstructedQuestionController);
 questionRouter.patch("/constructed", updateConstructedQuestionController);
+questionRouter.post("/", CreateQuestionController);
+questionRouter.patch("/", updateQuestionController);
 export default questionRouter;

@@ -5,7 +5,9 @@ const ConstructedResponse = require("../database/models/constructedResponse");
 const { sequelize } = require("../config/database");
 import { QUIZ_CONSTANTS, QUESTION_CONSTANTS } from "../data/constant";
 const createQuestion = async (data) => {
-  const quiz = await Quiz.findOne({ where: { quizId: data.quizId } });
+  const quiz = await Quiz.findOne({
+    where: { quizId: data.quizId, quizType: "Multiple-choice questions" },
+  });
   if (!quiz) {
     return QUIZ_CONSTANTS.NOT_FOUND;
   } else {
@@ -33,7 +35,9 @@ const createQuestion = async (data) => {
   }
 };
 const createConstructedQuestion = async (data) => {
-  const quiz = await Quiz.findOne({ where: { quizId: data.quizId } });
+  const quiz = await Quiz.findOne({
+    where: { quizId: data.quizId, quizType: "Constructed response" },
+  });
   if (!quiz) {
     return QUIZ_CONSTANTS.NOT_FOUND;
   } else {

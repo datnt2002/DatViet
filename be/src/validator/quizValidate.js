@@ -7,10 +7,6 @@ const createQuizSchema = Joi.object({
     "string.max": "title must have maximum 50 characters",
     "string.pattern.base": "title must not have special characters",
   }),
-  gameId: Joi.number().required().messages({
-    "number.base": "gameId must be a number",
-    "any.required": "gameId is required",
-  }),
   content: Joi.string().min(10).max(500).required().messages({
     "string.empty": "content must not be empty",
     "any.required": "content is required",
@@ -18,5 +14,13 @@ const createQuizSchema = Joi.object({
     "string.max": "content must have maximum 500 characters",
     "string.pattern.base": "content must not have special characters",
   }),
+  quizType: Joi.string()
+    .valid("Multiple-choice questions", "Constructed response")
+    .required()
+    .messages({
+      "string.empty": "quizType must not be empty",
+      "any.required": "quizType is required",
+      "string.pattern.base": "quizType must not have special characters",
+    }),
 });
 export { createQuizSchema };

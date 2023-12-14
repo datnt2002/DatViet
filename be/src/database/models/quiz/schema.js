@@ -14,7 +14,6 @@ module.exports = {
     allowNull: true,
   },
   quizType: {
-    type: DataTypes.INTEGER,
-    defaultValue: 0,
+    type: DataTypes.ENUM("Multiple-choice questions", "Constructed response"),
   },
 };

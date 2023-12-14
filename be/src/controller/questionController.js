@@ -13,7 +13,7 @@ import {
   createConstructedQuestionSchema,
   ConstructedQuestionUpdateSchema,
 } from "../validator/questionValidate.js";
-const createQuestionController = async (req, res, next) => {
+const CreateQuestionController = async (req, res, next) => {
   try {
     const data = req.body;
     const { error, value } = createQuestionSchema.validate(data);
@@ -39,9 +39,10 @@ const createQuestionController = async (req, res, next) => {
     next(error);
   }
 };
-const createConstructedQuestionController = async (req, res, next) => {
+const CreateConstructedQuestionController = async (req, res, next) => {
   try {
     const data = req.body;
+    console.log("this is data", req.body);
     const { error, value } = createConstructedQuestionSchema.validate(data);
     if (error) {
       return res.status(httpStatus.BAD_REQUEST).json({
@@ -128,8 +129,8 @@ const updateConstructedQuestionController = async (req, res, next) => {
   }
 };
 export {
-  createQuestionController,
-  createConstructedQuestionController,
+  CreateQuestionController,
+  CreateConstructedQuestionController,
   updateQuestionController,
   updateConstructedQuestionController,
 };
