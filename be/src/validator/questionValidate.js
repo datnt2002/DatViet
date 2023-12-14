@@ -6,6 +6,12 @@ const questionSchema = Joi.object({
     "string.max": "Question must have maximum 50 characters",
     "string.empty": "Question must not be empty",
   }),
+  questionImg: Joi.string().messages({
+    "string.empty": "Question image must not be empty",
+  }),
+  url: Joi.string().messages({
+    "string.empty": "URL must not be empty",
+  }),
   answer: Joi.array()
     .items(
       Joi.object({
