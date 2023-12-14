@@ -1,7 +1,7 @@
 import React from "react";
 
 import paperScroll from "../../assets/imgs/paperscroll.png";
-import bg from "../../assets/imgs/backgr.jpg";
+import bg from "../../assets/imgs/truytimcovat.jpg";
 import { useNavigate } from "react-router-dom";
 
 const QuizRule = () => {

@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import quizGame from "../../assets/imgs/truytimcovat.jpg";
+import quizGame from "../../assets/imgs/truytim.png";
 import paperScroll from "../../assets/imgs/paperscroll.png";
 import bg from "../../assets/imgs/backgr.jpg";
 import puzzle from "../../assets/imgs/puzzle.jpg";
 import map from "../../assets/imgs/map.jpg";
 import vuot from "../../assets/imgs/vuotchuong.jpg";
+import trongdong from "../../assets/imgs/trongdong1.png";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -19,6 +20,9 @@ const Homepage = () => {
   const handleNavigateTreasure = () => {
     navigate("/giai-ma-kho-bau-rule");
   };
+  const handleNavigateObstacle = () => {
+    navigate("/obstacle");
+  };
   return (
     <div>
       <div
@@ -29,13 +33,20 @@ const Homepage = () => {
       >
         <div className="text-center  h-screen basis-1/2 relative flex justify-center">
           <img src={paperScroll} alt="" className=" absolute w-full h-full" />
-          <div className="absolute z-50 self-center">
-            <h1 className="font-dancing font-bold text-8xl text-amber-800 mb-8 tracking-wide">
-              CHỦ NHÂN
-            </h1>
-            <h1 className="font-dancing font-bold text-8xl text-amber-800 tracking-wide">
-              ĐẤT VIỆT
-            </h1>
+          <div
+            className="absolute z-50 self-center bg-contain bg-no-repeat h-[70%] w-[70%]"
+            style={{
+              backgroundImage: `url(${trongdong})`,
+            }}
+          >
+            <div className="mt-32">
+              <h1 className="font-dancing font-bold text-8xl text-amber-800 mb-8 tracking-wide">
+                CHỦ NHÂN
+              </h1>
+              <h1 className="font-dancing font-bold text-8xl text-amber-800 tracking-wide">
+                ĐẤT VIỆT
+              </h1>
+            </div>
           </div>
         </div>
         <div className="flex flex-col basis-1/2 justify-center pt-5 gap-8 px-24">
@@ -78,7 +89,10 @@ const Homepage = () => {
               KHÁM PHÁ KÌ QUAN
             </h1>
           </div>
-          <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
+          <div
+            className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90"
+            onClick={handleNavigateObstacle}
+          >
             <img
               src={vuot}
               alt=""

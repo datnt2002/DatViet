@@ -17,12 +17,22 @@ const SiderAdmin = () => {
   const items = [
     {
       key: "/admin",
-      label: "Danh sách bộ đề",
+      label: "Truy Tìm Cổ Vật",
       icon: <QuestionOutlined />,
     },
     {
       key: "/admin/create-question",
-      label: "Tạo mới bộ đề",
+      label: "Tạo TTCV",
+      icon: <PlusOutlined />,
+    },
+    {
+      key: "/admin/gmkb",
+      label: "Giải Mã Kho Báu",
+      icon: <QuestionOutlined />,
+    },
+    {
+      key: "/admin/create-question-gmkb",
+      label: "Tạo GMKB",
       icon: <PlusOutlined />,
     },
     {

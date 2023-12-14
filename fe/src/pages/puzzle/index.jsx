@@ -1778,23 +1778,24 @@ const PuzzleGame = () => {
       <div id="gameInstruction">
         <div className="content-container">
           <div className="content">
-            <h4 className="font-bold text-orange-950 text-2xl">
+            <h4 className="font-bold font-dancing text-orange-950 text-6xl -mt-20 mb-14">
               Khám phá kỳ quan
             </h4>
-            <p className="mt-2">
+            <p className="mt-2 font-semibold font-dancing text-2xl">
               1. Người chơi quan sát các miếng ghép phía dưới.
             </p>
-            <p className="mt-2">
+            <p className="mt-2 font-semibold font-dancing text-2xl">
               2. Kéo miếng ghép ở dưới lên trên, chính giữa màn hình.
             </p>
-            <p className="mt-2">
-              3. Người chơi theo dõi các thông tin tư liệu tham khảo sau mỗi tranh.
+            <p className="mt-2 font-semibold font-dancing text-2xl">
+              3. Người chơi theo dõi các thông tin tư liệu tham khảo sau mỗi
+              tranh.
             </p>
             <button
               id="startBtn"
-              className="mt-5 bg-orange-400 hover:bg-orange-700 text-black font-bold py-2 px-4 rounded-full"
+              className="mt-10 text-2xl bg-orange-400 hover:bg-orange-700 text-black font-dancing font-bold py-6 px-8 rounded-full"
             >
-              Bắt Đầu{" "}
+              Bắt Đầu
               <span id="loadingEle">
                 <Spin size="medium" />
               </span>
@@ -1803,7 +1804,9 @@ const PuzzleGame = () => {
         </div>
       </div>
       <div id="gameImageName" className="flex justify-center items-center">
-        <h4 className="text-lg font-bold text-orange-500">{imgData?.name}</h4>
+        <h4 className="text-4xl my-2 font-dancing font-bold text-amber-800">
+          {imgData?.name}
+        </h4>
       </div>
       <div id="forPuzzle"></div>
       <div id="gameSummary">

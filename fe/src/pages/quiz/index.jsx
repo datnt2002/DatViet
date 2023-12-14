@@ -1,38 +1,57 @@
 import React from "react";
 
 import paperScroll from "../../assets/imgs/paperscroll.png";
-import bg from "../../assets/imgs/backgr.jpg";
+import bg from "../../assets/imgs/truytimcovat.jpg";
+import { Pagination } from "antd";
+import { useAppStore } from "../../store/appstate.ts";
 
 const Quiz = () => {
+
   return (
     <div>
       <div
         style={{
           backgroundImage: `url(${bg})`,
+          backgroundSize: "100%",
         }}
-        className="bg-cover bg-bottom min-h-screen"
+        className="bg-contain  bg-bottom min-h-screen"
       >
-        <div className="flex h-[39rem]">
-          <div className="basis-1/2 relative">
-            <img src={paperScroll} alt="" className="absolute" />
-            <div className="absolute z-50 w-full text-center">
-              <h1 className="font-dancing font-bold text-2xl text-amber-800 mb-8 tracking-wide">
-                1. Thực dân Pháp bắt đầu xâm lược nước ta vào năm nào?
-              </h1>
+        <div className="flex" style={{ height: "calc(100vh - 64px)" }}>
+          <div className="basis-1/2 flex justify-center items-center">
+            <div className=" w-full h-2/3">
+              <div className="relative">
+                <img className="" src={paperScroll} alt="" />
+                <div className="absolute top-[15%] w-full z-50 px-10">
+                  <h1 className="font-dancing font-bold text-2xl text-amber-800 mb-8 tracking-wide">
+                    1. Thực dân Pháp bắt đầu xâm lược nước ta vào năm nào?
+                  </h1>
+                  <img
+                    className="h-64 mx-auto"
+                    alt=""
+                    src="https://cdn.tgdd.vn/Files/2021/04/22/1345502/nguon-goc-dac-diem-cach-nuoi-va-bang-gia-cua-meo-anh-202203281928229223.jpg"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col basis-1/2 justify-center pt-5 gap-8 px-24">
-            <div className="flex border cursor-pointer border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
-              <h1 className="text-xl self-center font-semibold">A. 1858</h1>
-            </div>
-            <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
-              <h1 className="text-xl self-center font-semibold">B. 1859</h1>
-            </div>
-            <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
-              <h1 className="text-xl self-center font-semibold">C. 1862</h1>
-            </div>
-            <div className="flex border border-black text-center py-5 px-4 rounded-3xl bg-gray-100/90">
-              <h1 className="text-xl self-center font-semibold">D. 1868</h1>
+          <div className="flex basis-1/2 justify-center  items-center px-24 py-10">
+            <div className="w-full h-2/3 flex flex-col justify-between">
+              <div className="w-2/3 mx-auto rounded-lg border-2 flex flex-col items-center justify-center bg-white py-2 border-orange-600">
+                <h4>Chọn câu hỏi</h4>
+                <Pagination defaultCurrent={1} total={40} />
+              </div>
+              <div className="self-start w-full cursor-pointer border-black  py-3 px-4 rounded-3xl bg-gray-100/90">
+                <h1 className="text-xl  font-semibold">A. 1858</h1>
+              </div>
+              <div className="self-start w-full cursor-pointer border-black  py-3 px-4 rounded-3xl bg-gray-100/90">
+                <h1 className="text-xl  font-semibold">B. 1859</h1>
+              </div>
+              <div className="self-start w-full cursor-pointer border-black  py-3 px-4 rounded-3xl bg-gray-100/90">
+                <h1 className="text-xl  font-semibold">C. 1862</h1>
+              </div>
+              <div className="self-start  w-full selection:cursor-pointer border-black  py-3 px-4 rounded-3xl bg-gray-100/90">
+                <h1 className="text-xl  font-semibold">D. 1868</h1>
+              </div>
             </div>
           </div>
         </div>
