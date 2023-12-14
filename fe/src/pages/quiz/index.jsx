@@ -3,8 +3,11 @@ import React from "react";
 import paperScroll from "../../assets/imgs/paperscroll.png";
 import bg from "../../assets/imgs/truytimcovat.jpg";
 import { Pagination } from "antd";
+// import { useAppStore } from "../../store/appstate";
 
 const Quiz = () => {
+  // const {quizQuestions} = useAppStore();
+
   return (
     <div>
       <div
