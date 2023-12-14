@@ -3,7 +3,7 @@ import bg from "../../assets/imgs/backgr.jpg";
 import paperScroll from "../../assets/imgs/paperscroll.png";
 
 import { Space, Table } from "antd";
-import { questionList } from "../../data/dummy.ts";
+import { questionList } from "../../data/dummy";
 import { Link } from "react-router-dom";
 
 const Summary = () => {

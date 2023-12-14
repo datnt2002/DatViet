@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import bg from "../../assets/imgs/truytimcovat.jpg";
-import { useAppStore } from "../../store/appstate";
 import { useNavigate } from "react-router-dom";
 
 const ChooseQuiz = () => {
-  const { listQuiz, getListTracNghiemSet } = useAppStore();
+  // const { listQuiz, getListTracNghiemSet } = useAppStore();
   const navigate = useNavigate();
-  console.log(listQuiz);
+  const listQuiz = [
+    { quizId: 1, title: "Bộ Đề 1", description: "Lịch sử" },
+    { quizId: 2, title: "Bộ Đề 2", description: "Lịch sử" },
+    { quizId: 3, title: "Bộ Đề 3", description: "Lịch sử" },
+    { quizId: 4, title: "Bộ Đề 4", description: "Lịch sử" },
+    { quizId: 5, title: "Bộ Đề 5", description: "Lịch sử" },
+  ];
 
-  useEffect(() => {
-    getListTracNghiemSet();
-  }, []);
+  // useEffect(() => {
+  //   getListTracNghiemSet();
+  // }, []);
 
   const handleChooseQuiz = (quizId) => {
     navigate(`/truy-tim-bao-vat`);
@@ -32,9 +37,7 @@ const ChooseQuiz = () => {
                 key={index}
                 onClick={() => handleChooseQuiz(quiz?.quizId)}
               >
-                <h1 className="font-dancing text-2xl">
-                  Bộ đề {index + 1}: {quiz?.title}
-                </h1>
+                <h1 className="font-dancing text-2xl">{quiz?.title}</h1>
                 <p className="font-dancing text-xl">{quiz?.description}</p>
               </div>
             );

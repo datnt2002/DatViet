@@ -7,7 +7,7 @@ export interface quizQuestion{
     option3?: QuestionOption;
     option4?: QuestionOption;
     correctAnswerIndex: number;
-    imgs: string[],
+    imgs: any[],
     videoLink?: string;
     selectedAnswerIndex?: number;
 }

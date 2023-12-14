@@ -6,7 +6,7 @@ import bg from "../../assets/imgs/giaimakhobaubg.png";
 import { Radio, Space, Steps } from "antd";
 import { useNavigate } from "react-router-dom";
 
-import { questionList } from "../../data/dummy.ts";
+import { questionList } from "../../data/dummy";
 import { Button, Col, Form, Input, Row } from "antd";
 
 const Treasure = () => {
