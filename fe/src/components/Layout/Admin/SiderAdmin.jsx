@@ -8,6 +8,8 @@ import {
   MenuFoldOutlined,
   QuestionOutlined,
   PlusOutlined,
+  HighlightOutlined,
+  FileAddOutlined,
 } from "@ant-design/icons";
 
 const SiderAdmin = () => {
@@ -28,12 +30,12 @@ const SiderAdmin = () => {
     {
       key: "/admin/gmkb",
       label: "Giải Mã Kho Báu",
-      icon: <QuestionOutlined />,
+      icon: <HighlightOutlined />,
     },
     {
       key: "/admin/create-question-gmkb",
       label: "Tạo GMKB",
-      icon: <PlusOutlined />,
+      icon: <FileAddOutlined />,
     },
     {
       title: "",

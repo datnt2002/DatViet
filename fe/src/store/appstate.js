@@ -1,13 +1,16 @@
 import { create } from "zustand";
 import {
   createQuestionsTracNghiem,
+  createQuestionsTuLuan,
   createQuizTracNghiem,
   getListTracNghiem,
+  getListTuLuan,
 } from "../services/tracNghiem.service";
 
 export const useAppStore = create((set, get) => ({
   quiz: {},
   createQuizTracNghiemSet: async (data) => {
+    console.log(data);
     const newData = await createQuizTracNghiem(data);
     if (newData.status === 201) {
       set({ quiz: newData?.data });
@@ -28,6 +31,25 @@ export const useAppStore = create((set, get) => ({
     console.log(newData);
     if (newData?.status === 200) {
       set({ listQuiz: newData?.data });
+    }
+  },
+
+  //giai ma kho bau tu luan
+  questionstuLuan: [],
+  createQuestionsTuLuanSet: async (data) => {
+    console.log(data);
+    const newData = await createQuestionsTuLuan({
+      quizId: data?.quizId,
+      questions: data?.questions,
+    });
+    console.log(newData);
+  },
+  listQuizTuLuan: [],
+  getListTuLuanSet: async () => {
+    const newData = await getListTuLuan();
+    console.log(newData);
+    if (newData?.status === 200) {
+      set({ listQuizTuLuan: newData?.data });
     }
   },
 }));

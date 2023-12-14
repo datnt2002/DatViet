@@ -11,7 +11,10 @@ const CreateQuestionForm = () => {
   console.log(quiz);
   const handleSubmitQuiz = (values) => {
     console.log(values);
-    createQuizTracNghiemSet(values);
+    createQuizTracNghiemSet({
+      quizType: "Multiple-choice questions",
+      ...values,
+    });
     setIsCreatedQuizSuccess(true);
   };
 

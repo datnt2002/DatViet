@@ -16,6 +16,8 @@ import { useAppStore } from "./store/appstate.ts";
 import { useEffect } from "react";
 import Obstacle from "./pages/obstacle/index.jsx";
 import SummaryTuLuan from "./pages/treasure/SummaryTuLuan.jsx";
+import CreateTuLuan from "./pages/admin/dienDapAn/CreateTuLuan.jsx";
+import QuanLiTuLuan from "./pages/admin/dienDapAn/index.jsx";
 
 function App() {
   // TODO: get init state
@@ -115,6 +117,22 @@ function App() {
           element={
             <AdminGuard>
               <CreateQuestion />
+            </AdminGuard>
+          }
+        />
+        <Route
+          path="/admin/gmkb"
+          element={
+            <AdminGuard>
+              <QuanLiTuLuan />
+            </AdminGuard>
+          }
+        />
+        <Route
+          path="/admin/create-question-gmkb"
+          element={
+            <AdminGuard>
+              <CreateTuLuan />
             </AdminGuard>
           }
         />
