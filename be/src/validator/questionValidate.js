@@ -30,6 +30,13 @@ const ConstructedResponseSchema = Joi.object({
     "string.max": "Answer must have maximum 50 characters",
     "string.empty": "Answer must not be empty",
   }),
+  questionImg: Joi.string().messages({
+    "string.empty": "Question image must not be empty",
+  }),
+  url: Joi.string().messages({
+    "string.empty": "URL must not be empty",
+  }),
+  
 });
 const questionUpdateSchema = Joi.array().items({
   questionId: Joi.string().required().messages({
