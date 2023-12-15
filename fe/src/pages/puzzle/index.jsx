@@ -1835,14 +1835,14 @@ const PuzzleGame = () => {
             >
               
             </button> */}
-            <button
+            {/* <button
               onClick={() => {
                 window.location.reload();
               }}
               className="ml-3 mt-5 bg-red-400 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full"
             >
               Tiếp Tục Chơi
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -48,6 +48,8 @@ const Obstacle = () => {
       }
       if (currentAnswer === crosswordData[index].answer) {
         document
+          .getElementById(`cross-row${index}`).className = "";
+        document
           .getElementById(`cross-row${index}`)
           .classList.add("cross-correct");
         const newCompletedRows = [...completedRows, index];
@@ -59,6 +61,8 @@ const Obstacle = () => {
           setIsCompleted(true);
         }
       } else {
+        document
+          .getElementById(`cross-row${index}`).className = "";
         document
           .getElementById(`cross-row${index}`)
           .classList.add("cross-wrong");
