@@ -1791,7 +1791,7 @@ const PuzzleGame = () => {
               Khám phá kỳ quan
             </h4>
             <p className="mt-2 font-semibold font-dancing text-2xl">
-              1. Người chơi quan sát các miếng ghép phía bên trái màn hình.
+              1. Người chơi quan sát các miếng ghép phía bên phải màn hình.
             </p>
             <p className="mt-2 font-semibold font-dancing text-2xl">
               2. Kéo miếng ghép ra chính giữa màn hình và sắp xếp sao cho phù
