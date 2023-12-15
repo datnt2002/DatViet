@@ -21,15 +21,14 @@ const Rule = () => {
 
           <div className="my-5">
             <p className="text-4xl my-10 font-dancing">
-              1. Người chơi lựa chọn câu hỏi hàng ngang bất kỳ và điền đáp án
-              của câu hỏi đó.
+              1. Người chơi đọc Bộ câu hỏi và điền đáp án vào từng hàng ngang.
             </p>
             <p className="text-4xl my-10 font-dancing">
-              2. Khi hoàn thành câu hỏi hàng ngang, từ khoá hàng dọc sẽ xuất
-              hiện.
+              2. Khi đã điền đáp án hàng ngang xong, người chơi ấn “Mở ô chữ …”
             </p>
             <p className="text-4xl my-10 font-dancing">
-              3. Người chơi theo dõi tư liệu tham khảo về từ khoá đó.
+              3. Khi hoàn thành các câu hỏi hàng ngang, ô chữ hàng dọc xuất
+              hiện, người chơi theo dõi tư liệu tham khảo.
             </p>
           </div>
           <h1

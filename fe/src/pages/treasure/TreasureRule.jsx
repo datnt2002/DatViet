@@ -29,11 +29,10 @@ const TreasureRule = () => {
                 1. Người chơi đọc câu hỏi và viết câu trả lời vào ô trống.
               </p>
               <p className="text-4xl my-10 font-dancing">
-                2. Khi đã hoàn thành câu hỏi, người chơi chọn ô “Đã hoàn thành
-                bài”.
+                2. Khi đã hoàn thành câu hỏi, người chơi chọn ô “Nộp bài”.
               </p>
               <p className="text-4xl my-10 font-dancing">
-                3. Người chơi theo dõi trang thống kê đáp án
+                3. Người chơi theo dõi trang thống kê đáp án.
               </p>
             </div>
           </div>

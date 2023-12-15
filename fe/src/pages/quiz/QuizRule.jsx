@@ -29,8 +29,7 @@ const QuizRule = () => {
                 1. Người chơi đọc câu hỏi và chọn đáp án đúng cho từng câu.
               </p>
               <p className="text-4xl my-10 font-dancing">
-                2. Khi đã hoàn thành 15 câu hỏi, người chơi chọn ô “Đã hoàn
-                thành bài”.
+                2. Khi đã hoàn thành 15 câu hỏi, người chơi chọn ô “Nộp bài”.
               </p>
               <p className="text-4xl my-10 font-dancing">
                 3. Người chơi theo dõi trang thống kê đáp án và phần tư liệu
