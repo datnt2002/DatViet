@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CloseOutlined } from "@ant-design/icons";
 import { Button, Card, Checkbox, Form, Input, Space, Typography } from "antd";
 import { useAppStore } from "../../../store/appstate";
@@ -18,6 +18,23 @@ const EditTracNghiem = () => {
   };
   const [form] = Form.useForm();
   console.log(quiz);
+
+  useEffect(() => {
+    let formatValue;
+    if (quiz?.Questions?.length > 0) {
+      formatValue = {
+        questions: quiz?.Questions.map((question) => ({
+          content: question?.content,
+          answer: question?.Answers.map((answer) => ({
+            content: answer?.content,
+            isCorrect: answer?.isCorrect,
+          })),
+        })),
+      };
+    }
+    console.log(formatValue);
+    form.setFieldsValue(formatValue);
+  }, []);
 
   const formLayout = {
     labelCol: {

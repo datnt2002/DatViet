@@ -3,7 +3,7 @@ import axiosClient from "./api.service";
 export const createQuizTracNghiem = (data) => {
   const body = {
     title: data?.title,
-    content: data?.content,
+    description: data?.description,
     quizType: data?.quizType,
   };
   return axiosClient
@@ -42,7 +42,29 @@ export const createQuestionsTuLuan = (data) => {
 
 export const getListTracNghiem = () => {
   return axiosClient
-    .get("quizzes")
+    .get(`quizzes`)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => err);
+};
+
+export const getTracNghiem = (data) => {
+  return axiosClient
+    .get(`quizzes/${data}`)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => err);
+};
+
+export const editBoDeTracNghiem = (data) => {
+  console.log(data);
+  return axiosClient
+    .put(`quizzes/${data.quizId}`, {
+      title: data?.title,
+      description: data?.description,
+    })
     .then((res) => {
       return res;
     })

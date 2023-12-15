@@ -8,7 +8,7 @@ import { xoaBoDeTracNghiem } from "../../../services/tracNghiem.service";
 
 const QuanLiBoDe = () => {
   const { listQuiz, getListTracNghiemSet } = useAppStore();
-
+  console.log(listQuiz);
   useEffect(() => {
     getListTracNghiemSet();
   }, []);

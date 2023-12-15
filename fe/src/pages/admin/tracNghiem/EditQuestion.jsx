@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Content } from "antd/es/layout/layout";
 import { Button, Form, Input, Layout } from "antd";
 import EditTracNghiem from "../../../components/Container/FormContainer/EditTracNghiem";
 import { useLocation } from "react-router-dom";
+import { useAppStore } from "../../../store/appstate";
+import { editBoDeTracNghiem } from "../../../services/tracNghiem.service";
 
 const EditQuestion = () => {
   const [form] = Form.useForm();
+  const { quiz, getQuizTracNghiemSet } = useAppStore();
+
   const location = useLocation();
   const { pathname } = location;
   const pathNameArray = pathname.split("/").filter((item) => {
     return item;
   });
-  console.log(pathNameArray);
-  const handleSubmitQuiz = () => {};
+
+  const handleEditQuiz = (values) => {
+    console.log(values);
+    const body = {
+      ...values,
+      quizId: pathNameArray[2],
+    };
+    editBoDeTracNghiem(body);
+  };
+
+  useEffect(() => {
+    getQuizTracNghiemSet(pathNameArray[2]);
+  }, [pathNameArray[2]]);
+
+  useEffect(() => {
+    form.setFieldsValue(quiz);
+  }, []);
+
   const formLayout = {
     labelCol: {
       span: 4,
@@ -40,8 +60,8 @@ const EditQuestion = () => {
             </div>
             <>
               <Form
-                name="create-quiz"
-                onFinish={handleSubmitQuiz}
+                name="edit-quiz"
+                onFinish={handleEditQuiz}
                 labelWrap
                 form={form}
                 {...formLayout}
@@ -59,7 +79,7 @@ const EditQuestion = () => {
                   <Input className="border" placeholder="Tên Bộ Đề" />
                 </Form.Item>
                 <Form.Item
-                  name="content"
+                  name="description"
                   label="Nội dung"
                   rules={[
                     {

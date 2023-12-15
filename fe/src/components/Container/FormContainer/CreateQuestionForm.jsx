@@ -8,9 +8,8 @@ const CreateQuestionForm = () => {
   const [isCreatedQuizSuccess, setIsCreatedQuizSuccess] = useState(false);
 
   const { quiz, createQuizTracNghiemSet } = useAppStore();
-  console.log(quiz);
+
   const handleSubmitQuiz = (values) => {
-    console.log(values);
     createQuizTracNghiemSet({
       quizType: "Multiple-choice questions",
       ...values,
@@ -44,7 +43,7 @@ const CreateQuestionForm = () => {
           />
         </Form.Item>
         <Form.Item
-          name="content"
+          name="description"
           label="Nội dung"
           rules={[
             { required: true, message: "Vui Lòng Điền ô này trước khi gửi" },

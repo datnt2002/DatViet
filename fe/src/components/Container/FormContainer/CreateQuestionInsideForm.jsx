@@ -139,13 +139,7 @@ const CreateQuestionInsideForm = () => {
           </div>
         )}
       </Form.List>
-      <Form.Item noStyle shouldUpdate>
-        {() => (
-          <Typography>
-            <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>
-          </Typography>
-        )}
-      </Form.Item>
+
       <Form.Item
         wrapperCol={{
           span: 24,

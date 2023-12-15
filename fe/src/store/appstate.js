@@ -5,6 +5,7 @@ import {
   createQuizTracNghiem,
   getListTracNghiem,
   getListTuLuan,
+  getTracNghiem,
 } from "../services/tracNghiem.service";
 import { shuffleArray } from "../pages/quiz/helper";
 
@@ -54,6 +55,12 @@ export const useAppStore = create((set, get) => ({
     console.log(data);
     const newData = await createQuizTracNghiem(data);
     if (newData.status === 201) {
+      set({ quiz: newData?.data });
+    }
+  },
+  getQuizTracNghiemSet: async (data) => {
+    const newData = await getTracNghiem(data);
+    if (newData.status === 200) {
       set({ quiz: newData?.data });
     }
   },
