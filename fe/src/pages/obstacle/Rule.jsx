@@ -26,7 +26,7 @@ const Rule = () => {
             <p className="text-4xl my-10 font-dancing">
               2. Khi đã điền đáp án hàng ngang xong, người chơi ấn “Mở ô chữ …”
             </p>
-            <p className="text-4xl my-10 font-dancing">
+            <p className="text-4xl my-10 font-dancing max-w-4xl mx-auto">
               3. Khi hoàn thành các câu hỏi hàng ngang, ô chữ hàng dọc xuất
               hiện, người chơi theo dõi tư liệu tham khảo.
             </p>
